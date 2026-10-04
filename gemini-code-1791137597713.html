@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frenservosu.com | powered by xparca.com</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --x-navy: #0b2240;
+            --x-orange: #f26522;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333333;
+        }
+
+        /* HEADER & LOGO */
+        .top-navbar {
+            background: #ffffff;
+            border-bottom: 2px solid var(--x-orange);
+        }
+
+        .x-logo-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .x-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--x-navy);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--x-orange);
+            font-size: 1.4rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .brand-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--x-navy);
+            line-height: 1;
+        }
+
+        .brand-title span {
+            color: var(--x-orange);
+        }
+
+        .powered-by {
+            font-size: 0.72rem;
+            color: #6c757d;
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* HERO & ARAMA ALANI */
+        .hero-search-bg {
+            background: linear-gradient(135deg, #0b2240 0%, #153866 100%);
+            padding: 40px 0;
+            color: #ffffff;
+        }
+
+        .search-panel {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 24px;
+            color: #333333;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+        }
+
+        .search-header {
+            background: var(--x-navy);
+            color: #ffffff;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .btn-bul {
+            background: var(--x-orange);
+            color: #ffffff;
+            font-weight: 700;
+            border: none;
+        }
+
+        .btn-bul:hover {
+            background: #d95210;
+            color: #ffffff;
+        }
+
+        /* ÜRÜN KARTLARI */
+        .b2b-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 18px;
+            height: 100%;
+            transition: all 0.2s ease;
+        }
+
+        .b2b-card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-color: var(--x-orange);
+        }
+
+        .b2b-price {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--x-navy);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-radius: 6px;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1eb854;
+            color: #ffffff;
+        }
+
+        .authorized-badge-card {
+            background: #ffffff;
+            border: 2px dashed #0b2240;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .shield-icon {
+            width: 65px;
+            height: 65px;
+            background: var(--x-navy);
+            color: #ffffff;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px auto;
+            font-size: 1.6rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="top-navbar py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand text-decoration-none" href="#">
+                <div class="x-logo-box">
+                    <div class="x-icon"><i class="fa-solid fa-gear"></i></div>
+                    <div>
+                        <div class="brand-title">frenservosu<span>.com</span></div>
+                        <span class="powered-by">powered by <strong>xparca.com</strong></span>
+                    </div>
+                </div>
+            </a>
+            <div>
+                <a href="https://wa.me/905000000000" class="btn btn-outline-dark fw-bold btn-sm">
+                    <i class="fa-brands fa-whatsapp text-success me-1"></i> B2B Usta / Müşteri Destek
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO & ARAMA ALANI -->
+    <section class="hero-search-bg">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <!-- SOL ARAMA KUTUSU -->
+                <div class="col-lg-6">
+                    <div class="search-panel">
+                        <div class="search-header mb-3 text-center">
+                            <i class="fa-solid fa-magnifying-glass me-2"></i> Şasi No ile Fren Servosu Ara
+                        </div>
+                        
+                        <!-- ŞASİ INPUT -->
+                        <div class="input-group mb-3">
+                            <input type="text" id="vinInput" class="form-control form-control-lg text-uppercase" placeholder="17 Haneli Şasi No (VIN) Girin..." maxlength="17">
+                            <button class="btn btn-bul btn-lg px-4" type="button" onclick="sasiSorgula()">BUL</button>
+                        </div>
+                        <div id="vinAlert" class="mb-3 d-none"></div>
+
+                        <!-- ARAÇ SEÇİMİ -->
+                        <div class="p-3 bg-light rounded border">
+                            <div class="fw-bold mb-2 text-uppercase small text-muted"><i class="fa-solid fa-car me-1"></i> ARACINIZI SEÇİN</div>
+                            <div class="row g-2">
+                                <div class="col-12">
+                                    <select class="form-select form-select-sm" id="selectMarka">
+                                        <option value="">1. Marka Seçin</option>
+                                        <option value="Renault">Renault</option>
+                                        <option value="Volkswagen">Volkswagen</option>
+                                        <option value="Ford">Ford</option>
+                                        <option value="Fiat">Fiat</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <select class="form-select form-select-sm" id="selectModel" disabled>
+                                        <option value="">2. Model Seçin...</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <select class="form-select form-select-sm" id="selectYil" disabled>
+                                        <option value="">3. Yıl Seçin...</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAĞ TEKNİK GÖRSEL (KIRILMAZ VEKTÖR) -->
+                <div class="col-lg-6 text-center">
+                    <div class="p-4 bg-white rounded-3 shadow-lg text-dark">
+                        <svg viewBox="0 0 200 150" width="100%" height="200" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="100" cy="75" r="55" fill="#0b2240" stroke="#f26522" stroke-width="4"/>
+                            <circle cx="100" cy="75" r="40" fill="#153866" stroke="#ffffff" stroke-width="2"/>
+                            <rect x="150" y="68" width="35" height="14" rx="3" fill="#f26522"/>
+                            <rect x="15" y="70" width="30" height="10" rx="2" fill="#777777"/>
+                            <circle cx="100" cy="75" r="15" fill="#f26522"/>
+                            <text x="100" y="145" text-anchor="middle" fill="#0b2240" font-weight="bold" font-size="11">FREN SERVOSU (WESTINGHOUSE)</text>
+                        </svg>
+                        <div class="fw-bold text-uppercase mt-2 text-navy">%100 Şasiye Uyumlu Doğrulama Altyapısı</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AVANTAJ ROZETLERİ -->
+    <section class="py-3 bg-white border-bottom">
+        <div class="container">
+            <div class="row text-center g-2 small font-weight-bold">
+                <div class="col-6 col-md-3"><i class="fa-solid fa-certificate text-warning me-1"></i> Orijinal & OEM Standart</div>
+                <div class="col-6 col-md-3"><i class="fa-solid fa-truck-fast text-primary me-1"></i> Aynı Gün Kargo</div>
+                <div class="col-6 col-md-3"><i class="fa-solid fa-headset text-success me-1"></i> Uzman Şasi Desteği</div>
+                <div class="col-6 col-md-3"><i class="fa-solid fa-arrows-rotate text-info me-1"></i> Birebir Parça Doğrulama</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- B2B KATALOG VE ÜRÜNLER -->
+    <section class="py-5">
+        <div class="container">
+            <h3 class="h5 fw-bold text-uppercase mb-4 text-navy">
+                <i class="fa-solid fa-boxes-stacked me-2"></i> Popüler Fren Servosu Modelleri
+            </h3>
+
+            <div class="row g-4">
+                <!-- ÜRÜN 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="b2b-card">
+                        <div class="text-center py-3 bg-light rounded mb-3">
+                            <svg viewBox="0 0 100 80" width="100" height="80"><circle cx="50" cy="40" r="30" fill="#0b2240"/><rect x="75" y="36" width="20" height="8" fill="#f26522"/></svg>
+                        </div>
+                        <div class="border-top pt-2">
+                            <div class="fw-bold text-danger h6 mb-1">TRW</div>
+                            <small class="text-muted d-block">TRW: PMR1234567-TR | Renault Megane 2 Uyumlu</small>
+                            <div class="b2b-price my-2">₺ 4.850,00</div>
+                            <a href="https://wa.me/905000000000?text=TRW%20PMR1234567-TR%20Fren%20Servosu%20hakk%C4%B1nda%20bilgi%20ve%20sipari%C5%9F%20vermek%20istiyorum." class="btn btn-whatsapp">
+                                <i class="fa-brands fa-whatsapp me-1"></i> Şasi İle WhatsApp'tan Sipariş Ver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ÜRÜN 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="b2b-card">
+                        <div class="text-center py-3 bg-light rounded mb-3">
+                            <svg viewBox="0 0 100 80" width="100" height="80"><circle cx="50" cy="40" r="30" fill="#0b2240"/><rect x="75" y="36" width="20" height="8" fill="#f26522"/></svg>
+                        </div>
+                        <div class="border-top pt-2">
+                            <div class="fw-bold text-primary h6 mb-1">ATE</div>
+                            <small class="text-muted d-block">ATE: ATR1234567-ATE | VW Golf 5 Uyumlu</small>
+                            <div class="b2b-price my-2">₺ 5.200,00</div>
+                            <a href="https://wa.me/905000000000?text=ATE%20ATR1234567-ATE%20Fren%20Servosu%20hakk%C4%B1nda%20bilgi%20ve%20sipari%C5%9F%20vermek%20istiyorum." class="btn btn-whatsapp">
+                                <i class="fa-brands fa-whatsapp me-1"></i> Şasi İle WhatsApp'tan Sipariş Ver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROZET KARTI -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="authorized-badge-card h-100 d-flex flex-column justify-content-center align-items-center">
+                        <div class="shield-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <h4 class="fw-bold mb-1 text-navy">xparca.com</h4>
+                        <div class="text-uppercase font-weight-bold text-muted small mb-2">Verified Partner</div>
+                        <h5 class="fw-bold text-dark">Yetkili Dağıtım Ağı</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white pt-4 pb-3">
+        <div class="container text-center">
+            <p class="small text-muted mb-1">frenservosu.com - Türkiye'nin Fren Servosu ve Vakum Sistemleri Tedarikçisi</p>
+            <p class="small text-muted">Tüm altyapı ve kargo gönderimleri <strong>xparca.com</strong> güvencesiyle yapılmaktadır.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+        function sasiSorgula() {
+            var vin = document.getElementById('vinInput').value.trim();
+            var alertBox = document.getElementById('vinAlert');
+            
+            if (vin.length !== 17) {
+                alertBox.className = 'alert alert-danger py-2 small';
+                alertBox.innerHTML = 'Lütfen 17 haneli geçerli bir Şasi Numarası (VIN) giriniz.';
+                alertBox.classList.remove('d-none');
+            } else {
+                var waUrl = "https://wa.me/905000000000?text=Merhaba,%20" + vin + "%20sasi%20numarali%20aracim%20icin%20fren%20servosu%20fiyati%20almak%20istiyorum.";
+                alertBox.className = 'alert alert-success py-2 small';
+                alertBox.innerHTML = 'Şasi doğrulandı! <a href="' + waUrl + '" target="_blank" class="fw-bold text-success">Buraya tıklayarak WhatsApp üzerinden fiyat ve stok öğrenin.</a>';
+                alertBox.classList.remove('d-none');
+            }
+        }
+
+        document.getElementById('selectMarka').addEventListener('change', function() {
+            var model = document.getElementById('selectModel');
+            if(this.value) {
+                model.disabled = false;
+                model.innerHTML = '<option value="">2. Model Seçin...</option><option value="Megane 2">Megane 2</option><option value="Golf 5">Golf 5</option>';
+            } else {
+                model.disabled = true;
+            }
+        });
+    </script>
+</body>
+</html>
