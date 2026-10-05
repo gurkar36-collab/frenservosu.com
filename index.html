@@ -2,356 +2,329 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>frenservosu.com | powered by xparca.com</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome Icons -->
+    <meta name="viewport" content="width=device-vidth, initial-scale=1.0">
+    <title>Fren Servosu - Orijinal ve Kaliteli Fren Yedek Parçaları</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        :root {
-            --x-navy: #0b2240;
-            --x-orange: #f26522;
-        }
-
-        body {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            color: #333333;
         }
-
-        /* HEADER & LOGO */
-        .top-navbar {
-            background: #ffffff;
-            border-bottom: 2px solid var(--x-orange);
+        body {
+            background-color: #f4f6f9;
+            color: #333;
         }
-
-        .x-logo-box {
-            display: inline-flex;
+        /* Top Bar */
+        .top-bar {
+            background-color: #1a252f;
+            color: #ecf0f1;
+            font-size: 13px;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-bar span i {
+            color: #e67e22;
+            margin-right: 5px;
+        }
+        /* Header */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            display: flex;
             align-items: center;
             gap: 10px;
         }
-
-        .x-icon {
-            width: 42px;
-            height: 42px;
-            background: var(--x-navy);
-            border-radius: 8px;
+        .logo i {
+            font-size: 28px;
+            color: #e67e22;
+        }
+        .logo h1 {
+            font-size: 22px;
+            color: #2c3e50;
+            font-weight: 800;
+        }
+        .logo span {
+            color: #e67e22;
+        }
+        .search-box {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--x-orange);
-            font-size: 1.4rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .brand-title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--x-navy);
-            line-height: 1;
-        }
-
-        .brand-title span {
-            color: var(--x-orange);
-        }
-
-        .powered-by {
-            font-size: 0.72rem;
-            color: #6c757d;
-            display: block;
-            margin-top: 2px;
-        }
-
-        /* HERO & ARAMA ALANI */
-        .hero-search-bg {
-            background: linear-gradient(135deg, #0b2240 0%, #153866 100%);
-            padding: 40px 0;
-            color: #ffffff;
-        }
-
-        .search-panel {
-            background: #ffffff;
-            border-radius: 10px;
-            padding: 24px;
-            color: #333333;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-        }
-
-        .search-header {
-            background: var(--x-navy);
-            color: #ffffff;
-            padding: 12px 15px;
+            width: 45%;
+            border: 2px solid #e67e22;
             border-radius: 6px;
-            font-weight: 700;
-            font-size: 1.1rem;
+            overflow: hidden;
         }
-
-        .btn-bul {
-            background: var(--x-orange);
-            color: #ffffff;
-            font-weight: 700;
-            border: none;
-        }
-
-        .btn-bul:hover {
-            background: #d95210;
-            color: #ffffff;
-        }
-
-        /* ÜRÜN KARTLARI */
-        .b2b-card {
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 18px;
-            height: 100%;
-            transition: all 0.2s ease;
-        }
-
-        .b2b-card:hover {
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            border-color: var(--x-orange);
-        }
-
-        .b2b-price {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: var(--x-navy);
-        }
-
-        .btn-whatsapp {
-            background: #25D366;
-            color: #ffffff;
-            font-size: 0.85rem;
-            font-weight: 700;
-            border-radius: 6px;
+        .search-box input {
             width: 100%;
-            padding: 10px;
+            padding: 10px 15px;
             border: none;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
+            outline: none;
+            font-size: 14px;
         }
-
-        .btn-whatsapp:hover {
-            background: #1eb854;
-            color: #ffffff;
+        .search-box button {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            font-size: 16px;
         }
-
-        .authorized-badge-card {
-            background: #ffffff;
-            border: 2px dashed #0b2240;
+        .header-actions {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .header-actions div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        .header-actions i {
+            font-size: 18px;
+            color: #e67e22;
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            color: white;
+            padding: 40px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .hero-text h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .hero-text p {
+            font-size: 16px;
+            color: #bdc3c7;
+            margin-bottom: 20px;
+        }
+        .badge-box {
+            background: rgba(230, 126, 34, 0.2);
+            border: 1px solid #e67e22;
+            padding: 15px 25px;
             border-radius: 8px;
-            padding: 25px;
             text-align: center;
         }
-
-        .shield-icon {
-            width: 65px;
-            height: 65px;
-            background: var(--x-navy);
-            color: #ffffff;
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        .badge-box i {
+            font-size: 30px;
+            color: #e67e22;
+            margin-bottom: 5px;
+        }
+        .badge-box h4 {
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        /* Main Container */
+        .container {
+            padding: 30px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            border-left: 4px solid #e67e22;
+            padding-left: 10px;
+        }
+        /* Products Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.2s;
+            border: 1px solid #eaeaea;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .product-img {
+            height: 180px;
+            background: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 12px auto;
-            font-size: 1.6rem;
+            padding: 15px;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        .product-img i {
+            font-size: 70px;
+            color: #7f8c8d;
+        }
+        .product-body {
+            padding: 15px;
+        }
+        .product-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            height: 40px;
+            overflow: hidden;
+        }
+        .product-meta {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #e67e22;
+            margin-bottom: 15px;
+        }
+        .btn-add {
+            width: 100%;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-add:hover {
+            background-color: #e67e22;
+        }
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: #bdc3c7;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header class="top-navbar py-3">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand text-decoration-none" href="#">
-                <div class="x-logo-box">
-                    <div class="x-icon"><i class="fa-solid fa-gear"></i></div>
-                    <div>
-                        <div class="brand-title">frenservosu<span>.com</span></div>
-                        <span class="powered-by">powered by <strong>xparca.com</strong></span>
-                    </div>
-                </div>
-            </a>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <span><i class="fa-solid fa-truck"></i> Aynı Gün Kargo & Orijinal Ürün Garantisi</span>
+        <span><i class="fa-solid fa-headset"></i> Destek Hattı: 0850 000 00 00</span>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-gauge-high"></i>
             <div>
-                <a href="https://wa.me/905000000000" class="btn btn-outline-dark fw-bold btn-sm">
-                    <i class="fa-brands fa-whatsapp text-success me-1"></i> B2B Usta / Müşteri Destek
-                </a>
+                <h1>Fren<span>Servosu</span></h1>
             </div>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Parça adı, OEM kodu veya araç modeli yazın...">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div class="header-actions">
+            <div><i class="fa-solid fa-user"></i> Hesabım</div>
+            <div><i class="fa-solid fa-cart-shopping"></i> Sepetim</div>
         </div>
     </header>
 
-    <!-- HERO & ARAMA ALANI -->
-    <section class="hero-search-bg">
-        <div class="container">
-            <div class="row g-4 align-items-center">
-                <!-- SOL ARAMA KUTUSU -->
-                <div class="col-lg-6">
-                    <div class="search-panel">
-                        <div class="search-header mb-3 text-center">
-                            <i class="fa-solid fa-magnifying-glass me-2"></i> Şasi No ile Fren Servosu Ara
-                        </div>
-                        
-                        <!-- ŞASİ INPUT -->
-                        <div class="input-group mb-3">
-                            <input type="text" id="vinInput" class="form-control form-control-lg text-uppercase" placeholder="17 Haneli Şasi No (VIN) Girin..." maxlength="17">
-                            <button class="btn btn-bul btn-lg px-4" type="button" onclick="sasiSorgula()">BUL</button>
-                        </div>
-                        <div id="vinAlert" class="mb-3 d-none"></div>
-
-                        <!-- ARAÇ SEÇİMİ -->
-                        <div class="p-3 bg-light rounded border">
-                            <div class="fw-bold mb-2 text-uppercase small text-muted"><i class="fa-solid fa-car me-1"></i> ARACINIZI SEÇİN</div>
-                            <div class="row g-2">
-                                <div class="col-12">
-                                    <select class="form-select form-select-sm" id="selectMarka">
-                                        <option value="">1. Marka Seçin</option>
-                                        <option value="Renault">Renault</option>
-                                        <option value="Volkswagen">Volkswagen</option>
-                                        <option value="Ford">Ford</option>
-                                        <option value="Fiat">Fiat</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <select class="form-select form-select-sm" id="selectModel" disabled>
-                                        <option value="">2. Model Seçin...</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <select class="form-select form-select-sm" id="selectYil" disabled>
-                                        <option value="">3. Yıl Seçin...</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SAĞ TEKNİK GÖRSEL (KIRILMAZ VEKTÖR) -->
-                <div class="col-lg-6 text-center">
-                    <div class="p-4 bg-white rounded-3 shadow-lg text-dark">
-                        <svg viewBox="0 0 200 150" width="100%" height="200" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="100" cy="75" r="55" fill="#0b2240" stroke="#f26522" stroke-width="4"/>
-                            <circle cx="100" cy="75" r="40" fill="#153866" stroke="#ffffff" stroke-width="2"/>
-                            <rect x="150" y="68" width="35" height="14" rx="3" fill="#f26522"/>
-                            <rect x="15" y="70" width="30" height="10" rx="2" fill="#777777"/>
-                            <circle cx="100" cy="75" r="15" fill="#f26522"/>
-                            <text x="100" y="145" text-anchor="middle" fill="#0b2240" font-weight="bold" font-size="11">FREN SERVOSU (WESTINGHOUSE)</text>
-                        </svg>
-                        <div class="fw-bold text-uppercase mt-2 text-navy">%100 Şasiye Uyumlu Doğrulama Altyapısı</div>
-                    </div>
-                </div>
-            </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h2>Profesyonel Fren Sistemleri ve Yedek Parçalar</h2>
+            <p>Aracınız için en güvenilir fren merkezleri, hidrolik üniteler ve servolar tek tıkla kapınızda.</p>
+        </div>
+        <div class="badge-box">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h4>%100 UYUMLULUK GARANTİSİ</h4>
         </div>
     </section>
 
-    <!-- AVANTAJ ROZETLERİ -->
-    <section class="py-3 bg-white border-bottom">
-        <div class="container">
-            <div class="row text-center g-2 small font-weight-bold">
-                <div class="col-6 col-md-3"><i class="fa-solid fa-certificate text-warning me-1"></i> Orijinal & OEM Standart</div>
-                <div class="col-6 col-md-3"><i class="fa-solid fa-truck-fast text-primary me-1"></i> Aynı Gün Kargo</div>
-                <div class="col-6 col-md-3"><i class="fa-solid fa-headset text-success me-1"></i> Uzman Şasi Desteği</div>
-                <div class="col-6 col-md-3"><i class="fa-solid fa-arrows-rotate text-info me-1"></i> Birebir Parça Doğrulama</div>
+    <!-- Main Content -->
+    <div class="container">
+        <h3 class="section-title">Öne Çıkan Fren Ürünleri ve Servolar</h3>
+        
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fa-solid fa-circle-nodes"></i>
+                </div>
+                <div class="product-body">
+                    <div class="product-title">Megane 2 Uyumlu Fren Servosu Vakum Ünitesi</div>
+                    <div class="product-meta">OEM: 8200... | Sıfır Ürün</div>
+                    <div class="product-price">2.450,00 ₺</div>
+                    <button class="btn-add">İncele / Satın Al</button>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- B2B KATALOG VE ÜRÜNLER -->
-    <section class="py-5">
-        <div class="container">
-            <h3 class="h5 fw-bold text-uppercase mb-4 text-navy">
-                <i class="fa-solid fa-boxes-stacked me-2"></i> Popüler Fren Servosu Modelleri
-            </h3>
-
-            <div class="row g-4">
-                <!-- ÜRÜN 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="b2b-card">
-                        <div class="text-center py-3 bg-light rounded mb-3">
-                            <svg viewBox="0 0 100 80" width="100" height="80"><circle cx="50" cy="40" r="30" fill="#0b2240"/><rect x="75" y="36" width="20" height="8" fill="#f26522"/></svg>
-                        </div>
-                        <div class="border-top pt-2">
-                            <div class="fw-bold text-danger h6 mb-1">TRW</div>
-                            <small class="text-muted d-block">TRW: PMR1234567-TR | Renault Megane 2 Uyumlu</small>
-                            <div class="b2b-price my-2">₺ 4.850,00</div>
-                            <a href="https://wa.me/905000000000?text=TRW%20PMR1234567-TR%20Fren%20Servosu%20hakk%C4%B1nda%20bilgi%20ve%20sipari%C5%9F%20vermek%20istiyorum." class="btn btn-whatsapp">
-                                <i class="fa-brands fa-whatsapp me-1"></i> Şasi İle WhatsApp'tan Sipariş Ver
-                            </a>
-                        </div>
-                    </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fa-solid fa-gears"></i>
                 </div>
-
-                <!-- ÜRÜN 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="b2b-card">
-                        <div class="text-center py-3 bg-light rounded mb-3">
-                            <svg viewBox="0 0 100 80" width="100" height="80"><circle cx="50" cy="40" r="30" fill="#0b2240"/><rect x="75" y="36" width="20" height="8" fill="#f26522"/></svg>
-                        </div>
-                        <div class="border-top pt-2">
-                            <div class="fw-bold text-primary h6 mb-1">ATE</div>
-                            <small class="text-muted d-block">ATE: ATR1234567-ATE | VW Golf 5 Uyumlu</small>
-                            <div class="b2b-price my-2">₺ 5.200,00</div>
-                            <a href="https://wa.me/905000000000?text=ATE%20ATR1234567-ATE%20Fren%20Servosu%20hakk%C4%B1nda%20bilgi%20ve%20sipari%C5%9F%20vermek%20istiyorum." class="btn btn-whatsapp">
-                                <i class="fa-brands fa-whatsapp me-1"></i> Şasi İle WhatsApp'tan Sipariş Ver
-                            </a>
-                        </div>
-                    </div>
+                <div class="product-body">
+                    <div class="product-title">Fren Ana Merkezi (Abs Uyumlu)</div>
+                    <div class="product-meta">Bosch / Magneti Marelli</div>
+                    <div class="product-price">1.850,00 ₺</div>
+                    <button class="btn-add">İncele / Satın Al</button>
                 </div>
+            </div>
 
-                <!-- ROZET KARTI -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="authorized-badge-card h-100 d-flex flex-column justify-content-center align-items-center">
-                        <div class="shield-icon">
-                            <i class="fa-solid fa-check"></i>
-                        </div>
-                        <h4 class="fw-bold mb-1 text-navy">xparca.com</h4>
-                        <div class="text-uppercase font-weight-bold text-muted small mb-2">Verified Partner</div>
-                        <h5 class="fw-bold text-dark">Yetkili Dağıtım Ağı</h5>
-                    </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fa-solid fa-car-side"></i>
+                </div>
+                <div class="product-body">
+                    <div class="product-title">Fren Vakum Pompası Dizel 1.5 dCi</div>
+                    <div class="product-meta">Pierburg Kalite</div>
+                    <div class="product-price">1.250,00 ₺</div>
+                    <button class="btn-add">İncele / Satın Al</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fa-solid fa-shield-check"></i>
+                </div>
+                <div class="product-body">
+                    <div class="product-title">Hidrolik Depo ve Seviye Sensörü</div>
+                    <div class="product-meta">Orijinal Yan Sanayi</div>
+                    <div class="product-price">450,00 ₺</div>
+                    <button class="btn-add">İncele / Satın Al</button>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- FOOTER -->
-    <footer class="bg-dark text-white pt-4 pb-3">
-        <div class="container text-center">
-            <p class="small text-muted mb-1">frenservosu.com - Türkiye'nin Fren Servosu ve Vakum Sistemleri Tedarikçisi</p>
-            <p class="small text-muted">Tüm altyapı ve kargo gönderimleri <strong>xparca.com</strong> güvencesiyle yapılmaktadır.</p>
-        </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 frenservosu.com - Tüm Hakları Saklıdır. Güvenli E-Ticaret Platformu.</p>
     </footer>
 
-    <!-- SCRIPT -->
-    <script>
-        function sasiSorgula() {
-            var vin = document.getElementById('vinInput').value.trim();
-            var alertBox = document.getElementById('vinAlert');
-            
-            if (vin.length !== 17) {
-                alertBox.className = 'alert alert-danger py-2 small';
-                alertBox.innerHTML = 'Lütfen 17 haneli geçerli bir Şasi Numarası (VIN) giriniz.';
-                alertBox.classList.remove('d-none');
-            } else {
-                var waUrl = "https://wa.me/905000000000?text=Merhaba,%20" + vin + "%20sasi%20numarali%20aracim%20icin%20fren%20servosu%20fiyati%20almak%20istiyorum.";
-                alertBox.className = 'alert alert-success py-2 small';
-                alertBox.innerHTML = 'Şasi doğrulandı! <a href="' + waUrl + '" target="_blank" class="fw-bold text-success">Buraya tıklayarak WhatsApp üzerinden fiyat ve stok öğrenin.</a>';
-                alertBox.classList.remove('d-none');
-            }
-        }
-
-        document.getElementById('selectMarka').addEventListener('change', function() {
-            var model = document.getElementById('selectModel');
-            if(this.value) {
-                model.disabled = false;
-                model.innerHTML = '<option value="">2. Model Seçin...</option><option value="Megane 2">Megane 2</option><option value="Golf 5">Golf 5</option>';
-            } else {
-                model.disabled = true;
-            }
-        });
-    </script>
 </body>
 </html>
