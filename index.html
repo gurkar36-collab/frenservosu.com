@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FrenServosu - Profesyonel Otomotiv Yedek Parça</title>
+    <title>frenservosu.com - Profesyonel Fren Sistemleri</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,58 +13,14 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: #f4f6f9;
+            background-color: #f0f4f8;
             color: #333;
         }
-        /* Üst Araç/Kısayol Sekmeleri Çubuğu */
-        .shortcuts-bar {
+        /* Top Navigation Bar */
+        .top-nav {
             background-color: #ffffff;
             border-bottom: 1px solid #e1e8ed;
-            padding: 6px 20px;
-            display: flex;
-            gap: 15px;
-            overflow-x: auto;
-            white-space: nowrap;
-            font-size: 12px;
-            color: #555;
-            align-items: center;
-        }
-        .shortcuts-bar::-webkit-scrollbar {
-            height: 4px;
-        }
-        .shortcuts-bar::-webkit-scrollbar-thumb {
-            background: #ccc;
-            border-radius: 2px;
-        }
-        .shortcuts-bar a {
-            color: #444;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: color 0.2s;
-        }
-        .shortcuts-bar a:hover {
-            color: #e67e22;
-        }
-        
-        /* Kampanya Duyuru Barı */
-        .top-bar {
-            background-color: #ff6b00;
-            color: #ffffff;
-            font-size: 13px;
-            padding: 8px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 500;
-        }
-
-        /* Ana Header */
-        header {
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            padding: 15px 5%;
+            padding: 12px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -72,293 +28,333 @@
             top: 0;
             z-index: 1000;
         }
-        .logo {
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #1a252f, #ff6b00);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .logo-text h1 {
+            font-size: 20px;
+            color: #1a252f;
+            font-weight: 800;
+        }
+        .logo-text h1 span {
+            color: #ff6b00;
+        }
+        .logo-text p {
+            font-size: 10px;
+            color: #7f8c8d;
+            letter-spacing: 0.5px;
+        }
+        
+        .main-menu {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .main-menu li {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .main-menu li:hover {
+            color: #ff6b00;
+        }
+        
+        .header-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .header-right div {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+        .header-right i {
+            color: #ff6b00;
+        }
+
+        /* Hero / Wizard Section */
+        .hero-section {
+            background: linear-gradient(135deg, #1a252f, #2c3e50);
+            padding: 40px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+            color: white;
+        }
+
+        /* Şasi No ve Araç Seçim Alanı (Sol Taraf) */
+        .search-wizard {
+            background: #ffffff;
+            color: #333;
+            width: 450px;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .wizard-title {
+            background: #1a252f;
+            color: white;
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        .logo i {
-            font-size: 30px;
-            color: #ff6b00;
-        }
-        .logo h1 {
-            font-size: 24px;
-            color: #1a252f;
-            font-weight: 800;
-        }
-        .logo span {
-            color: #ff6b00;
-        }
-        .search-box {
+        .chassis-box {
             display: flex;
-            width: 45%;
+            background: #f8f9fa;
             border: 2px solid #ff6b00;
             border-radius: 6px;
             overflow: hidden;
+            margin-bottom: 20px;
         }
-        .search-box input {
+        .chassis-box input {
             width: 100%;
-            padding: 10px 15px;
+            padding: 10px 12px;
             border: none;
             outline: none;
-            font-size: 14px;
+            font-size: 13px;
         }
-        .search-box button {
-            background-color: #ff6b00;
+        .chassis-box button {
+            background: #ff6b00;
             color: white;
             border: none;
             padding: 0 20px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .header-actions {
-            display: flex;
-            gap: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-        .header-actions div {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-weight: bold;
             cursor: pointer;
         }
-        .header-actions i {
-            font-size: 18px;
-            color: #ff6b00;
-        }
 
-        /* Hero / Vitrin Alanı */
-        .hero {
-            background: linear-gradient(135deg, #1a252f, #2c3e50);
-            color: white;
-            padding: 40px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
+        .select-group {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
         }
-        .hero-text h2 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-        .hero-text p {
-            font-size: 15px;
-            color: #bdc3c7;
-            margin-bottom: 20px;
-            max-width: 600px;
-        }
-        .hero-graphic {
-            font-size: 90px;
-            color: #ff6b00;
-            opacity: 0.8;
-        }
-
-        /* Ana İçerik ve Ürünler */
-        .container {
-            padding: 30px 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #2c3e50;
-            border-left: 4px solid #ff6b00;
-            padding-left: 10px;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 20px;
-        }
-        .product-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            transition: transform 0.2s;
-            border: 1px solid #eaeaea;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .product-img {
-            height: 170px;
-            background: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-            border-bottom: 1px solid #f1f1f1;
-        }
-        .product-img i {
-            font-size: 65px;
-            color: #ff6b00;
-        }
-        .product-body {
-            padding: 15px;
-        }
-        .product-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 8px;
-            height: 40px;
-            overflow: hidden;
-        }
-        .product-meta {
-            font-size: 12px;
+        .select-group h4 {
+            font-size: 13px;
             color: #7f8c8d;
             margin-bottom: 10px;
+            text-transform: uppercase;
         }
-        .product-price {
-            font-size: 18px;
-            font-weight: 700;
-            color: #ff6b00;
-            margin-bottom: 15px;
+        .select-row {
+            margin-bottom: 10px;
+            position: relative;
         }
-        .btn-add {
+        .select-row select {
             width: 100%;
-            background-color: #1a252f;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: 600;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 13px;
+            background: #fff;
+            outline: none;
             cursor: pointer;
-            transition: background 0.2s;
+            color: #555;
         }
-        .btn-add:hover {
-            background-color: #ff6b00;
+
+        /* Sağ Taraf Görsel ve Ürün Öne Çıkarım Alanı */
+        .hero-banner-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 20px;
+        }
+        .hero-banner-content h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .hero-banner-content p {
+            color: #bdc3c7;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .brake-booster-hero-img {
+            max-width: 450px;
+            width: 100%;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+        }
+
+        /* Kategoriler Alt Bant */
+        .categories-strip {
+            background: white;
+            padding: 20px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            border-bottom: 1px solid #e1e8ed;
+        }
+        .cat-card {
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            background: #fafbfc;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .cat-card:hover {
+            border-color: #ff6b00;
+            box-shadow: 0 4px 12px rgba(255,107,0,0.1);
+        }
+        .cat-card i {
+            font-size: 32px;
+            color: #ff6b00;
+            margin-bottom: 8px;
+        }
+        .cat-card h5 {
+            font-size: 14px;
+            color: #2c3e50;
         }
 
         /* Footer */
         footer {
             background-color: #1a252f;
             color: #bdc3c7;
-            text-align: center;
-            padding: 20px;
+            padding: 25px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-size: 13px;
-            margin-top: 50px;
+            margin-top: 40px;
+        }
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- Üst Kısayol Sekmeleri Çubuğu (Senin istediğin model detayları) -->
-    <div class="shortcuts-bar">
-        <a href="#"><i class="fa-solid fa-car"></i> Maviparca.com</a>
-        <a href="#"><i class="fa-solid fa-globe"></i> Webmail</a>
-        <a href="#"><i class="fa-solid fa-book"></i> TecDoc Catalogue</a>
-        <a href="#"><i class="fa-solid fa-screwdriver-wrench"></i> Votek</a>
-        <a href="#"><i class="fa-solid fa-boxes-stacked"></i> partslink24</a>
-        <a href="#"><i class="fa-solid fa-warehouse"></i> Başbuğ</a>
-        <a href="#"><i class="fa-solid fa-shop"></i> Oto İsmail</a>
-        <a href="#"><i class="fa-solid fa-gears"></i> Dinamik</a>
-        <a href="#"><i class="fa-solid fa-box"></i> Dpar</a>
-        <a href="#"><i class="fa-solid fa-tag"></i> Genel oto</a>
-        <a href="#"><i class="fa-solid fa-truck-fast"></i> Martaş</a>
-        <a href="#"><i class="fa-solid fa-building"></i> Mercanlar</a>
-    </div>
-
-    <!-- Duyuru Barı -->
-    <div class="top-bar">
-        <span><i class="fa-solid fa-truck"></i> Aynı Gün Kargo & Orijinal Ürün Garantisi</span>
-        <span><i class="fa-solid fa-headset"></i> Destek Hattı: 0850 000 00 00</span>
-    </div>
-
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            <i class="fa-solid fa-gauge-high"></i>
-            <div>
-                <h1>Fren<span>Servosu</span></h1>
+    <!-- Üst Menü & Logo -->
+    <div class="top-nav">
+        <div class="logo-area">
+            <div class="logo-icon">X</div>
+            <div class="logo-text">
+                <h1>frenservosu<span>.com</span></h1>
+                <p>powered by xparca.com</p>
             </div>
         </div>
-        <div class="search-box">
-            <input type="text" placeholder="Parça adı, OEM kodu veya araç modeli yazın...">
-            <button><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-        <div class="header-actions">
+        <ul class="main-menu">
+            <li>KATEGORİLER <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></li>
+            <li>MARKALAR</li>
+            <li>AVANTAJLARA BAKIŞ</li>
+            <li>BLOG</li>
+            <li>İLETİŞİM</li>
+        </ul>
+        <div class="header-right">
             <div><i class="fa-solid fa-user"></i> Hesabım</div>
             <div><i class="fa-solid fa-cart-shopping"></i> Sepetim</div>
+            <span style="background: #eee; padding: 4px 8px; border-radius: 4px; font-size: 12px;">TR v</span>
         </div>
-    </header>
+    </div>
 
-    <!-- Hero Alanı -->
-    <section class="hero">
-        <div class="hero-text">
-            <h2>Profesyonel Fren Sistemleri ve Yedek Parçalar</h2>
-            <p>Aracınız için en güvenilir fren merkezleri, hidrolik üniteler ve servolar tek tıkla kapınızda.</p>
+    <!-- Hero Bölümü ve Şasi/Araç Seçim Sihirbazı -->
+    <section class="hero-section">
+        <div class="search-wizard">
+            <div class="wizard-title">
+                <i class="fa-solid fa-magnifying-glass"></i> Şasi No ile Fren Servosu Ara
+            </div>
+            <div class="chassis-box">
+                <input type="text" placeholder="Aracınızın 17 haneli Şasi Numarasını (VIN) giriniz...">
+                <button>BUL</button>
+            </div>
+
+            <div class="select-group">
+                <h4>Aracınızı Seçin</h4>
+                <div class="select-row">
+                    <select><option>1. Marka</option></select>
+                </div>
+                <div class="select-row">
+                    <select><option>2. Model Seçin...</option></select>
+                </div>
+                <div class="select-row">
+                    <select><option>3. Yıl</option></select>
+                </div>
+                <div class="select-row">
+                    <select><option>4. Motor Seçin...</option></select>
+                </div>
+                <div class="select-row">
+                    <select><option>5. Şanzıman</option></select>
+                </div>
+            </div>
         </div>
-        <div class="hero-graphic">
-            <i class="fa-solid fa-car-rear"></i>
+
+        <div class="hero-banner-content">
+            <h2>Profesyonel Fren Sistemleri ve Çözümleri</h2>
+            <p>Aracınıza %100 uyumlu orijinal fren servoları, vakum pompaları ve hidrolik merkezler tek tıkla kapınızda.</p>
+            <div style="background: rgba(255,107,0,0.15); border: 1px solid #ff6b00; padding: 15px 25px; border-radius: 8px; display: inline-flex; align-items: center; gap: 15px;">
+                <i class="fa-solid fa-shield-halved" style="font-size: 30px; color: #ff6b00;"></i>
+                <div style="text-align: left;">
+                    <div style="font-weight: bold; font-size: 15px; color: white;">%100 Şasi Uyum Garantisi</div>
+                    <div style="font-size: 12px; color: #bdc3c7;">Yanlış parça riskine son, tam uyum desteği.</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Ürünler -->
-    <div class="container">
-        <h3 class="section-title">Öne Çıkan Fren Ürünleri ve Servolar</h3>
-        
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-img">
-                    <i class="fa-solid fa-circle-nodes"></i>
-                </div>
-                <div class="product-body">
-                    <div class="product-title">Megane 2 Uyumlu Fren Servosu Vakum Ünitesi</div>
-                    <div class="product-meta">OEM: 8200... | Sıfır Ürün</div>
-                    <div class="product-price">2.450,00 ₺</div>
-                    <button class="btn-add">İncele / Satın Al</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img">
-                    <i class="fa-solid fa-gears"></i>
-                </div>
-                <div class="product-body">
-                    <div class="product-title">Fren Ana Merkezi (Abs Uyumlu)</div>
-                    <div class="product-meta">Bosch / Magneti Marelli</div>
-                    <div class="product-price">1.850,00 ₺</div>
-                    <button class="btn-add">İncele / Satın Al</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img">
-                    <i class="fa-solid fa-car-side"></i>
-                </div>
-                <div class="product-body">
-                    <div class="product-title">Fren Vakum Pompası Dizel 1.5 dCi</div>
-                    <div class="product-meta">Pierburg Kalite</div>
-                    <div class="product-price">1.250,00 ₺</div>
-                    <button class="btn-add">İncele / Satın Al</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img">
-                    <i class="fa-solid fa-shield-check"></i>
-                </div>
-                <div class="product-body">
-                    <div class="product-title">Hidrolik Depo ve Seviye Sensörü</div>
-                    <div class="product-meta">Orijinal Yan Sanayi</div>
-                    <div class="product-price">450,00 ₺</div>
-                    <button class="btn-add">İncele / Satın Al</button>
-                </div>
-            </div>
+    <!-- Kategori Şeritleri -->
+    <div class="categories-strip">
+        <div class="cat-card">
+            <i class="fa-solid fa-circle-nodes"></i>
+            <h5>FREN SERVOSULARI</h5>
+        </div>
+        <div class="cat-card">
+            <i class="fa-solid fa-gears"></i>
+            <h5>FREN VAKUM POMPALARI</h5>
+        </div>
+        <div class="cat-card">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <h5>TAMİR KİTLERİ</h5>
+        </div>
+        <div class="cat-card">
+            <i class="fa-solid fa-box-archive"></i>
+            <h5>DİĞER PARÇALAR</h5>
+        </div>
+        <div class="cat-card">
+            <i class="fa-solid fa-car-burst"></i>
+            <h5>POMPA DİYAFRAMLARI</h5>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 frenservosu.com - Tüm Hakları Saklıdır. Güvenli E-Ticaret Platformu.</p>
+        <div>&copy; 2026 frenservosu.com - Tüm Hakları Saklıdır. Güvenli E-Ticaret Platformu.</div>
+        <div class="footer-links">
+            <a href="#">Bize Ulaşın</a>
+            <a href="#">Müşteri Hizmetleri</a>
+            <a href="#">Hesabım</a>
+        </div>
     </footer>
 
 </body>
