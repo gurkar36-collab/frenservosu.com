@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fren Servosu - Orijinal ve Kaliteli Fren Yedek Parçaları</title>
+    <title>FrenServosu - Profesyonel Otomotiv Yedek Parça</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -16,19 +16,51 @@
             background-color: #f4f6f9;
             color: #333;
         }
+        /* Üst Araç/Kısayol Sekmeleri Çubuğu */
+        .shortcuts-bar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e1e8ed;
+            padding: 6px 20px;
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            white-space: nowrap;
+            font-size: 12px;
+            color: #555;
+            align-items: center;
+        }
+        .shortcuts-bar::-webkit-scrollbar {
+            height: 4px;
+        }
+        .shortcuts-bar::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 2px;
+        }
+        .shortcuts-bar a {
+            color: #444;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.2s;
+        }
+        .shortcuts-bar a:hover {
+            color: #e67e22;
+        }
+        
+        /* Kampanya Duyuru Barı */
         .top-bar {
-            background-color: #1a252f;
-            color: #ecf0f1;
+            background-color: #ff6b00;
+            color: #ffffff;
             font-size: 13px;
             padding: 8px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-weight: 500;
         }
-        .top-bar span i {
-            color: #e67e22;
-            margin-right: 5px;
-        }
+
+        /* Ana Header */
         header {
             background-color: #ffffff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -46,21 +78,21 @@
             gap: 10px;
         }
         .logo i {
-            font-size: 28px;
-            color: #e67e22;
+            font-size: 30px;
+            color: #ff6b00;
         }
         .logo h1 {
-            font-size: 22px;
-            color: #2c3e50;
+            font-size: 24px;
+            color: #1a252f;
             font-weight: 800;
         }
         .logo span {
-            color: #e67e22;
+            color: #ff6b00;
         }
         .search-box {
             display: flex;
             width: 45%;
-            border: 2px solid #e67e22;
+            border: 2px solid #ff6b00;
             border-radius: 6px;
             overflow: hidden;
         }
@@ -72,7 +104,7 @@
             font-size: 14px;
         }
         .search-box button {
-            background-color: #e67e22;
+            background-color: #ff6b00;
             color: white;
             border: none;
             padding: 0 20px;
@@ -94,41 +126,37 @@
         }
         .header-actions i {
             font-size: 18px;
-            color: #e67e22;
+            color: #ff6b00;
         }
+
+        /* Hero / Vitrin Alanı */
         .hero {
-            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            background: linear-gradient(135deg, #1a252f, #2c3e50);
             color: white;
             padding: 40px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+            overflow: hidden;
         }
         .hero-text h2 {
             font-size: 32px;
             margin-bottom: 10px;
         }
         .hero-text p {
-            font-size: 16px;
+            font-size: 15px;
             color: #bdc3c7;
             margin-bottom: 20px;
+            max-width: 600px;
         }
-        .badge-box {
-            background: rgba(230, 126, 34, 0.2);
-            border: 1px solid #e67e22;
-            padding: 15px 25px;
-            border-radius: 8px;
-            text-align: center;
+        .hero-graphic {
+            font-size: 90px;
+            color: #ff6b00;
+            opacity: 0.8;
         }
-        .badge-box i {
-            font-size: 30px;
-            color: #e67e22;
-            margin-bottom: 5px;
-        }
-        .badge-box h4 {
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
+
+        /* Ana İçerik ve Ürünler */
         .container {
             padding: 30px 5%;
             max-width: 1400px;
@@ -139,7 +167,7 @@
             font-weight: 700;
             margin-bottom: 20px;
             color: #2c3e50;
-            border-left: 4px solid #e67e22;
+            border-left: 4px solid #ff6b00;
             padding-left: 10px;
         }
         .product-grid {
@@ -160,7 +188,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .product-img {
-            height: 180px;
+            height: 170px;
             background: #fff;
             display: flex;
             align-items: center;
@@ -169,8 +197,8 @@
             border-bottom: 1px solid #f1f1f1;
         }
         .product-img i {
-            font-size: 70px;
-            color: #7f8c8d;
+            font-size: 65px;
+            color: #ff6b00;
         }
         .product-body {
             padding: 15px;
@@ -191,12 +219,12 @@
         .product-price {
             font-size: 18px;
             font-weight: 700;
-            color: #e67e22;
+            color: #ff6b00;
             margin-bottom: 15px;
         }
         .btn-add {
             width: 100%;
-            background-color: #2c3e50;
+            background-color: #1a252f;
             color: white;
             border: none;
             padding: 10px;
@@ -206,8 +234,10 @@
             transition: background 0.2s;
         }
         .btn-add:hover {
-            background-color: #e67e22;
+            background-color: #ff6b00;
         }
+
+        /* Footer */
         footer {
             background-color: #1a252f;
             color: #bdc3c7;
@@ -220,11 +250,29 @@
 </head>
 <body>
 
+    <!-- Üst Kısayol Sekmeleri Çubuğu (Senin istediğin model detayları) -->
+    <div class="shortcuts-bar">
+        <a href="#"><i class="fa-solid fa-car"></i> Maviparca.com</a>
+        <a href="#"><i class="fa-solid fa-globe"></i> Webmail</a>
+        <a href="#"><i class="fa-solid fa-book"></i> TecDoc Catalogue</a>
+        <a href="#"><i class="fa-solid fa-screwdriver-wrench"></i> Votek</a>
+        <a href="#"><i class="fa-solid fa-boxes-stacked"></i> partslink24</a>
+        <a href="#"><i class="fa-solid fa-warehouse"></i> Başbuğ</a>
+        <a href="#"><i class="fa-solid fa-shop"></i> Oto İsmail</a>
+        <a href="#"><i class="fa-solid fa-gears"></i> Dinamik</a>
+        <a href="#"><i class="fa-solid fa-box"></i> Dpar</a>
+        <a href="#"><i class="fa-solid fa-tag"></i> Genel oto</a>
+        <a href="#"><i class="fa-solid fa-truck-fast"></i> Martaş</a>
+        <a href="#"><i class="fa-solid fa-building"></i> Mercanlar</a>
+    </div>
+
+    <!-- Duyuru Barı -->
     <div class="top-bar">
         <span><i class="fa-solid fa-truck"></i> Aynı Gün Kargo & Orijinal Ürün Garantisi</span>
         <span><i class="fa-solid fa-headset"></i> Destek Hattı: 0850 000 00 00</span>
     </div>
 
+    <!-- Header -->
     <header>
         <div class="logo">
             <i class="fa-solid fa-gauge-high"></i>
@@ -242,17 +290,18 @@
         </div>
     </header>
 
+    <!-- Hero Alanı -->
     <section class="hero">
         <div class="hero-text">
             <h2>Profesyonel Fren Sistemleri ve Yedek Parçalar</h2>
             <p>Aracınız için en güvenilir fren merkezleri, hidrolik üniteler ve servolar tek tıkla kapınızda.</p>
         </div>
-        <div class="badge-box">
-            <i class="fa-solid fa-shield-halved"></i>
-            <h4>%100 UYUMLULUK GARANTİSİ</h4>
+        <div class="hero-graphic">
+            <i class="fa-solid fa-car-rear"></i>
         </div>
     </section>
 
+    <!-- Ürünler -->
     <div class="container">
         <h3 class="section-title">Öne Çıkan Fren Ürünleri ve Servolar</h3>
         
@@ -307,6 +356,7 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2026 frenservosu.com - Tüm Hakları Saklıdır. Güvenli E-Ticaret Platformu.</p>
     </footer>
