@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>frenservosu.com - powered by xparca.com</title>
-    <!-- Font Awesome Icons -->
+    <!-- Font Awesome Simgeleri -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -27,7 +27,7 @@
             color: var(--text-dark);
         }
 
-        /* Top Bar & Header */
+        /* Üst Header */
         header {
             background-color: #ffffff;
             border-bottom: 2px solid #e5e5e5;
@@ -46,12 +46,17 @@
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
-        .logo-icon {
-            font-size: 32px;
-            color: var(--accent-orange);
+        .logo-symbol {
+            background: linear-gradient(135deg, var(--accent-orange), #d94e0d);
+            color: white;
+            font-size: 22px;
+            font-weight: 900;
+            padding: 8px 14px;
+            border-radius: 8px;
+            letter-spacing: -1px;
         }
 
         .logo-text {
@@ -89,7 +94,7 @@
             gap: 6px;
         }
 
-        /* Navigation Bar */
+        /* Navigasyon Menüsü */
         nav {
             background-color: #ffffff;
             border-top: 1px solid #f0f0f0;
@@ -115,6 +120,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            color: var(--primary-blue);
         }
 
         .nav-links {
@@ -129,13 +135,12 @@
             text-transform: uppercase;
         }
 
-        /* Hero Banner Section */
+        /* Hero Banner Alanı */
         .hero-section {
             background: linear-gradient(135deg, #0b2341 0%, #1a3a60 60%, #001226 100%);
             color: white;
             padding: 30px 20px;
             position: relative;
-            overflow: hidden;
         }
 
         .hero-container {
@@ -144,11 +149,10 @@
             display: grid;
             grid-template-columns: 320px 1fr;
             gap: 30px;
-            position: relative;
-            z-index: 2;
+            align-items: start;
         }
 
-        /* VIN & Vehicle Selector Box */
+        /* Şasi & Araç Seçim Kutuları */
         .search-box-container {
             display: flex;
             flex-direction: column;
@@ -167,7 +171,7 @@
             color: white;
             padding: 10px;
             font-weight: bold;
-            font-size: 15px;
+            font-size: 14px;
             border-radius: 5px;
             text-align: center;
             margin-bottom: 12px;
@@ -183,14 +187,14 @@
             padding: 10px;
             border: 1px solid var(--border-color);
             border-radius: 4px;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .vin-input-group button {
             background-color: var(--accent-orange);
             color: white;
             border: none;
-            padding: 10px 18px;
+            padding: 10px 16px;
             font-weight: bold;
             border-radius: 4px;
             cursor: pointer;
@@ -225,25 +229,43 @@
             border-radius: 4px;
             font-size: 12px;
             background-color: #fafafa;
+            color: #333;
         }
 
-        /* Banner Main Area */
-        .hero-banner {
+        /* Banner Görseli Alanı */
+        .hero-banner-display {
+            background: #112d53;
+            border-radius: 12px;
+            padding: 20px;
+            min-height: 380px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             text-align: center;
-            position: relative;
         }
 
-        .hero-banner img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
+        .hero-banner-display i {
+            font-size: 80px;
+            color: var(--accent-orange);
+            margin-bottom: 15px;
         }
 
-        /* Features Ribbon */
+        .hero-banner-display h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .hero-banner-display p {
+            font-size: 14px;
+            color: #a0aec0;
+            max-width: 500px;
+        }
+
+        /* Avantajlar / Özellikler Şeridi */
         .features-bar {
             background-color: #ffffff;
             border-bottom: 1px solid var(--border-color);
@@ -272,7 +294,7 @@
             color: var(--accent-orange);
         }
 
-        /* Categories Section */
+        /* Kategoriler Alanı */
         .categories-section {
             max-width: 1200px;
             margin: 30px auto;
@@ -281,7 +303,7 @@
 
         .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
             gap: 15px;
         }
 
@@ -289,11 +311,64 @@
             background-color: white;
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 15px;
+            padding: 20px 15px;
             text-align: center;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .category-card:hover {
             transform: translateY(-3px);
-            box-
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .category-card h3 {
+            font-size: 12px;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .category-card i {
+            font-size: 45px;
+            color: var(--primary-blue);
+        }
+
+        /* Partner Kartı */
+        .partner-box {
+            background-color: #e9ecef;
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .partner-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .partner-item i {
+            color: var(--accent-orange);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 20px 0;
+            margin-top: 40px;
+            font-
