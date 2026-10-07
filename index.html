@@ -6,9 +6,10 @@
   <title>frenservosu.com - powered by xparca.com</title>
   <style>
     :root {
-      --primary-navy: #0e2b5c;
-      --dark-navy: #071836;
-      --accent-orange: #f38218;
+      --navy-dark: #0a192f;
+      --navy-main: #0e2b5c;
+      --navy-card: #071836;
+      --orange-main: #f38218;
       --bg-gray: #eef2f6;
       --border-gray: #cbd5e1;
     }
@@ -17,7 +18,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
 
     body {
@@ -25,7 +26,7 @@
       color: #333;
     }
 
-    /* 1. HEADER & TOP BAR */
+    /* HEADER */
     header {
       background: #ffffff;
       border-bottom: 1px solid #e2e8f0;
@@ -53,9 +54,8 @@
     .logo-title {
       font-size: 24px;
       font-weight: 900;
-      color: var(--primary-navy);
+      color: var(--navy-main);
       text-decoration: none;
-      letter-spacing: -0.5px;
     }
 
     .logo-sub {
@@ -71,7 +71,7 @@
       gap: 20px;
       font-size: 12px;
       font-weight: 700;
-      color: var(--primary-navy);
+      color: var(--navy-main);
     }
 
     /* MAIN MENU */
@@ -88,18 +88,13 @@
       list-style: none;
       font-size: 12px;
       font-weight: 800;
-      color: var(--primary-navy);
+      color: var(--navy-main);
     }
 
-    .menu-list li {
-      cursor: pointer;
-    }
-
-    /* 2. HERO SECTION */
+    /* HERO SECTION */
     .hero {
       background: linear-gradient(135deg, #0e2b5c 0%, #071836 100%);
       padding: 30px 0;
-      position: relative;
     }
 
     .hero-grid {
@@ -116,7 +111,6 @@
       border-radius: 12px;
       padding: 14px;
       margin-bottom: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     .vin-card h2 {
@@ -142,7 +136,7 @@
     }
 
     .btn-orange {
-      background: var(--accent-orange);
+      background: var(--orange-main);
       color: #ffffff;
       border: none;
       padding: 8px 22px;
@@ -157,7 +151,6 @@
       background: #ffffff;
       border-radius: 12px;
       padding: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     }
 
     .filter-card h3 {
@@ -165,7 +158,7 @@
       font-weight: 800;
       color: #334155;
       margin-bottom: 10px;
-      border-bottom: 2px solid var(--accent-orange);
+      border-bottom: 2px solid var(--orange-main);
       display: inline-block;
       padding-bottom: 3px;
     }
@@ -190,7 +183,7 @@
       opacity: 0.6;
     }
 
-    /* HERO CAR GRAPHIC */
+    /* HERO BANNER IMAGE */
     .hero-graphic {
       display: flex;
       flex-direction: column;
@@ -198,30 +191,25 @@
       justify-content: center;
       color: #fff;
       text-align: center;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 70%);
-      padding: 40px;
-      border-radius: 20px;
-      border: 1px dashed rgba(255,255,255,0.15);
-    }
-
-    .hero-graphic .car-icon {
-      font-size: 80px;
-      margin-bottom: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 50px 20px;
+      border-radius: 16px;
+      border: 1px dashed rgba(255, 255, 255, 0.2);
     }
 
     .hero-graphic h1 {
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 900;
-      color: #93c5fd;
-      margin-bottom: 5px;
+      color: #60a5fa;
+      margin-bottom: 8px;
     }
 
     .hero-graphic p {
-      font-size: 13px;
+      font-size: 14px;
       color: #cbd5e1;
     }
 
-    /* 3. TRUST BADGES BAR */
+    /* TRUST BADGES */
     .trust-bar {
       background: #ffffff;
       border-bottom: 1px solid #e2e8f0;
@@ -233,7 +221,7 @@
       justify-content: space-between;
       font-size: 11px;
       font-weight: 800;
-      color: var(--primary-navy);
+      color: var(--navy-main);
     }
 
     .badge-item {
@@ -242,7 +230,7 @@
       gap: 8px;
     }
 
-    /* 4. CATEGORIES & SIDEBAR */
+    /* CATEGORIES & SIDEBAR */
     .main-section {
       padding: 30px 0;
     }
@@ -267,8 +255,7 @@
       text-align: center;
       font-size: 10px;
       font-weight: 800;
-      color: var(--primary-navy);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+      color: var(--navy-main);
     }
 
     .category-card .icon {
@@ -292,13 +279,13 @@
       padding: 10px;
       font-size: 10px;
       font-weight: 800;
-      color: var(--primary-navy);
+      color: var(--navy-main);
       text-align: center;
     }
 
-    /* 5. FOOTER */
+    /* FOOTER */
     footer {
-      background: var(--primary-navy);
+      background: var(--navy-main);
       color: #ffffff;
       padding: 15px 0;
       font-size: 11px;
@@ -344,7 +331,7 @@
   <section class="hero">
     <div class="container hero-grid">
       
-      <!-- SOL: ARAMA VE FİLTRE -->
+      <!-- ARAÇ SEÇİMİ VE ŞASİ ARAMA -->
       <div>
         <div class="vin-card">
           <h2>Şasi No ile Fren Servosu Ara</h2>
@@ -363,27 +350,38 @@
               <option value="alfa">Alfa Romeo</option>
               <option value="audi">Audi</option>
               <option value="bmw">BMW</option>
-
               <option value="citroen">Citroën</option>
+              <option value="cupra">Cupra</option>
               <option value="dacia">Dacia</option>
-              <option value="fiat">Fiat</option>
+              <option value="ds">DS Automobiles</option>
+              <option value="fiat">Fiat / Tofaş</option>
               <option value="ford">Ford</option>
-
               <option value="honda">Honda</option>
               <option value="hyundai">Hyundai</option>
               <option value="isuzu">Isuzu</option>
               <option value="iveco">Iveco</option>
+              <option value="jaguar">Jaguar</option>
+              <option value="jeep">Jeep</option>
               <option value="kia">Kia</option>
+              <option value="lancia">Lancia</option>
 
+              <option value="landrover">Land Rover</option>
+              <option value="mazda">Mazda</option>
               <option value="mercedes">Mercedes-Benz</option>
+              <option value="mini">Mini</option>
               <option value="mitsubishi">Mitsubishi</option>
               <option value="nissan">Nissan</option>
               <option value="opel">Opel</option>
               <option value="peugeot">Peugeot</option>
+              <option value="porsche">Porsche</option>
               <option value="renault">Renault</option>
               <option value="seat">Seat</option>
               <option value="skoda">Škoda</option>
+              <option value="ssangyong">SsangYong / KGM</option>
+              <option value="subaru">Subaru</option>
 
+              <option value="suzuki">Suzuki</option>
+              <option value="togg">Togg</option>
               <option value="toyota">Toyota</option>
               <option value="volkswagen">Volkswagen</option>
               <option value="volvo">Volvo</option>
@@ -416,19 +414,163 @@
         </div>
       </div>
 
-      <!-- SAĞ: BİREBİR ARAÇ VE FREN SERVOSU GÖRSEL ALANI -->
+      <!-- SAĞ BANNER -->
       <div class="hero-graphic">
-        <div class="car-icon">🚗⚙️</div>
+        <div style="font-size: 70px; margin-bottom: 10px;">🏎️⚙️</div>
         <h1>%100 OEM STANDARDI</h1>
-        <p>Birebir Uyumlu Fren Servosu ve Vakum Pompası</p>
-        <small style="margin-top:15px; color:#93c5fd;">Şasi Numarası (VIN) Sorgulaması İle Sıfır Hata</small>
+        <p>Orijinal ve Garantili Fren Servoları</p>
+        <small style="margin-top: 15px; color: #93c5fd;">Şasi Numarası (VIN) İle %100 Doğru Parça Tespiti</small>
       </div>
 
     </div>
   </section>
 
-  <!-- ROZETLER -->
+  <!-- GÜVENLİK ROZETLERİ -->
   <section class="trust-bar">
     <div class="container badges-grid">
-      <div class="badge-item">🛡️ ORİJİNAL VE GARANTİLİ ÜRÜNLER</div>
-      <div class="badge-item">🚚 H
+      <div class="badge-item">🎯 ORİJİNAL VE GARANTİLİ ÜRÜNLER</div>
+      <div class="badge-item">🚚 HIZLI VE ÜCRETSİZ KARGO</div>
+      <div class="badge-item">👨‍🔧 UZMAN TEKNİK DESTEK</div>
+      <div class="badge-item">🔄 KOLAY İADE</div>
+    </div>
+  </section>
+
+  <!-- KATEGORİLER -->
+  <section class="main-section">
+    <div class="container content-grid">
+      
+      <div class="categories-grid">
+        <div class="category-card">
+          <div class="icon">⚙️</div>
+          FREN SERVOSULARI
+        </div>
+        <div class="category-card">
+          <div class="icon">🔌</div>
+          FREN VAKUM POMPALARI
+        </div>
+        <div class="category-card">
+          <div class="icon">🛠️</div>
+          TAMİR KİTLERİ
+        </div>
+        <div class="category-card">
+          <div class="icon">🔩</div>
+          DİĞER PARÇALAR
+        </div>
+        <div class="category-card">
+          <div class="icon">🏎️</div>
+          POPÜLER MODELLER
+        </div>
+      </div>
+
+      <div class="sidebar-partners">
+        <div class="partner-card">xparca.com İş Ortağı</div>
+        <div class="partner-card">YEDEK PARÇA UZMANI</div>
+        <div class="partner-card">PROFESYONEL ORTAKLIK</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-flex">
+      <div>⚙️ FrenServosu.com | BİZE ULAŞIN</div>
+      <div>MÜŞTERİ HİZMETLERİ | HESABIM</div>
+      <div>VISA | ISO 9001 SERTİFİKALI</div>
+    </div>
+  </footer>
+
+  <!-- TÜM MARKALARIN DİNAMİK MODEL LİSTESİ -->
+  <script>
+    const vehicleDB = {
+      alfa: ['Giulietta', 'Giulia', 'Stelvio', '159', '147'],
+      audi: ['A1', 'A3', 'A4', 'A5', 'A6', 'A7', 'Q2', 'Q3', 'Q5', 'Q7'],
+      bmw: ['1 Seri', '2 Seri', '3 Seri', '4 Seri', '5 Seri', 'X1', 'X3', 'X5'],
+      citroen: ['C3', 'C3 Aircross', 'C4', 'C4 Cactus', 'C5 Aircross', 'C-Elysee', 'Berlingo', 'Nemo'],
+      cupra: ['Formentor', 'Leon', 'Ateca'],
+      dacia: ['Duster', 'Sandero', 'Sandero Stepway', 'Logan', 'Lodgy', 'Jogger'],
+      ds: ['DS 3', 'DS 4', 'DS 7'],
+      fiat: ['Egea', 'Egea Cross', 'Linea', 'Doblo', 'Fiorino', 'Punto', 'Panda', '500', 'Ducato'],
+      ford: ['Focus', 'Fiesta', 'Puma', 'Kuga', 'Courier', 'Connect', 'Transit', 'Mondeo'],
+      honda: ['Civic', 'CR-V', 'HR-V', 'Jazz', 'City'],
+      hyundai: ['i10', 'i20', 'i30', 'Bayon', 'Tucson', 'Santa Fe', 'Accent Blue', 'Elantra'],
+      isuzu: ['D-Max'],
+      iveco: ['Daily'],
+      jaguar: ['F-Pace', 'XE', 'XF'],
+      jeep: ['Renegade', 'Compass', 'Grand Cherokee'],
+      kia: ['Picanto', 'Rio', 'Ceed', 'Stonic', 'XCeed', 'Sportage', 'Sorento'],
+      lancia: ['Delta', 'Ypsilon'],
+      landrover: ['Range Rover Evoque', 'Range Rover Sport', 'Discovery Sport', 'Freelander'],
+      mazda: ['Mazda 3', 'Mazda 6', 'CX-3', 'CX-5'],
+      mercedes: ['A-Serisi', 'B-Serisi', 'C-Serisi', 'E-Serisi', 'CLA', 'GLA', 'GLC', 'Vito', 'Sprinter'],
+      mini: ['Cooper', 'Countryman'],
+      mitsubishi: ['L200', 'ASX', 'Eclipse Cross', 'Pajero'],
+      nissan: ['Micra', 'Juke', 'Qashqai', 'X-Trail', 'Navara'],
+      opel: ['Corsa', 'Astra', 'Insignia', 'Mokka', 'Crossland', 'Grandland', 'Combo'],
+      peugeot: ['208', '2008', '301', '308', '3008', '5008', 'Rifter', 'Partner'],
+      porsche: ['Macan', 'Cayenne'],
+      renault: ['Clio', 'Megane', 'Fluence', 'Captur', 'Kadjar', 'Austral', 'Taliant', 'Kangoo', 'Master'],
+      seat: ['Ibiza', 'Leon', 'Arona', 'Ateca', 'Tarraco'],
+      skoda: ['Fabia', 'Scala', 'Octavia', 'Superb', 'Kamiq', 'Karoq', 'Kodiaq'],
+      ssangyong: ['Tivoli', 'Korando', 'Musso Grand'],
+      subaru: ['XV', 'Forester', 'Outback'],
+      suzuki: ['Swift', 'Vitara', 'Jimny'],
+      togg: ['T10X'],
+      toyota: ['Yaris', 'Corolla', 'C-HR', 'RAV4', 'Hilux', 'Proace City'],
+      volkswagen: ['Polo', 'Golf', 'Passat', 'T-Roc', 'Tiguan', 'Touareg', 'Caddy', 'Transporter', 'Amarok'],
+      volvo: ['XC40', 'XC60', 'XC90', 'S60', 'S90', 'V40']
+    };
+
+    const brandSelect = document.getElementById('brandSelect');
+    const modelSelect = document.getElementById('modelSelect');
+    const yearSelect = document.getElementById('yearSelect');
+    const engineSelect = document.getElementById('engineSelect');
+    const gearSelect = document.getElementById('gearSelect');
+
+    brandSelect.addEventListener('change', (e) => {
+      const brand = e.target.value;
+      modelSelect.innerHTML = '<option value="">🚘 2. Model Seçin...</option>';
+      yearSelect.disabled = true; engineSelect.disabled = true; gearSelect.disabled = true;
+
+      if (brand && vehicleDB[brand]) {
+        modelSelect.disabled = false;
+        vehicleDB[brand].forEach(m => {
+          modelSelect.innerHTML += `<option value="${m}">${m}</option>`;
+        });
+      } else {
+        modelSelect.disabled = true;
+      }
+    });
+
+    modelSelect.addEventListener('change', () => {
+      yearSelect.innerHTML = '<option value="">📅 3. Yıl</option>';
+      if (modelSelect.value) {
+        yearSelect.disabled = false;
+        for (let y = 2026; y >= 2000; y--) {
+          yearSelect.innerHTML += `<option value="${y}">${y}</option>`;
+        }
+      }
+    });
+
+    yearSelect.addEventListener('change', () => {
+      engineSelect.innerHTML = '<option value="">⚙️ 4. Motor Seçin...</option>';
+      if (yearSelect.value) {
+        engineSelect.disabled = false;
+        ['1.0 TSI / PureTech / TCe', '1.2 TSI / PureTech', '1.4 TSI / T-Jet', '1.5 dCi / BlueHDi / TDI', '1.6 TDI / HDi / E-HDI', '2.0 TDI / DCI / CDTI'].forEach(eng => {
+          engineSelect.innerHTML += `<option value="${eng}">${eng}</option>`;
+        });
+      }
+    });
+
+    engineSelect.addEventListener('change', () => {
+      gearSelect.innerHTML = '<option value="">🕹️ 5. Şanzıman</option>';
+      if (engineSelect.value) {
+        gearSelect.disabled = false;
+        ['Manuel', 'Otomatik / DSG / EDC / EAT8'].forEach(g => {
+          gearSelect.innerHTML += `<option value="${g}">${g}</option>`;
+        });
+      }
+    });
+  </script>
+</body>
+</html>
