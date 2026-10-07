@@ -1,374 +1,332 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>frenservosu.com - powered by xparca.com</title>
-    <!-- Font Awesome Simgeleri -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-blue: #0b2341;
-            --accent-orange: #f26522;
-            --light-bg: #f4f6f8;
-            --border-color: #dcdfe6;
-            --text-dark: #333333;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Şasi No ve Araç Seçici Filtre Paneli</title>
+  <style>
+    :root {
+      --primary-blue: #0f2b5c;
+      --accent-orange: #f38218;
+      --bg-gray: #f4f6f9;
+      --border-color: #d1d5db;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            background-color: var(--light-bg);
-            color: var(--text-dark);
-        }
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-gray);
+    }
 
-        /* Üst Header */
-        header {
-            background-color: #ffffff;
-            border-bottom: 2px solid #e5e5e5;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
+    .hero-selector-section {
+      padding: 40px 20px;
+    }
 
-        .header-top {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
 
-        .logo-symbol {
-            background: linear-gradient(135deg, var(--accent-orange), #d94e0d);
-            color: white;
-            font-size: 22px;
-            font-weight: 900;
-            padding: 8px 14px;
-            border-radius: 8px;
-            letter-spacing: -1px;
-        }
+    .vin-search-card {
+      background: var(--primary-blue);
+      color: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
 
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
+    .vin-search-card h2 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
 
-        .logo-text h1 {
-            font-size: 24px;
-            color: var(--primary-blue);
-            font-weight: 800;
-            line-height: 1;
-        }
+    .input-group {
+      display: flex;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 4px;
+    }
 
-        .logo-text span {
-            font-size: 11px;
-            color: #777;
-            margin-top: 3px;
-        }
+    .input-group input {
+      flex: 1;
+      border: none;
+      padding: 12px;
+      outline: none;
+      font-size: 0.9rem;
+    }
 
-        .user-nav {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--primary-blue);
-        }
+    .btn-primary {
+      background-color: var(--accent-orange);
+      color: #ffffff;
+      border: none;
+      padding: 10px 24px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+    }
 
-        .user-nav a {
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+    .btn-primary:hover {
+      background-color: #d96f0f;
+    }
 
-        /* Navigasyon Menüsü */
-        nav {
-            background-color: #ffffff;
-            border-top: 1px solid #f0f0f0;
-        }
+    .vehicle-select-card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            padding: 10px 20px;
-            font-size: 13px;
-            font-weight: 700;
-        }
+    .vehicle-select-card h3 {
+      font-size: 1rem;
+      color: #333333;
+      margin-bottom: 15px;
+    }
 
-        .categories-btn {
-            background-color: #f8f9fa;
-            border: 1px solid var(--border-color);
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--primary-blue);
-        }
+    .select-step {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      margin-bottom: 10px;
+      background: #fafafa;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
+    .select-step select {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 0.9rem;
+      color: #444444;
+      cursor: pointer;
+    }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--primary-blue);
-            text-transform: uppercase;
-        }
+    .select-step select:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
 
-        /* Hero Banner Alanı */
-        .hero-section {
-            background: linear-gradient(135deg, #0b2341 0%, #1a3a60 60%, #001226 100%);
-            color: white;
-            padding: 30px 20px;
-            position: relative;
-        }
+    .btn-secondary {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary-blue);
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: opacity 0.2s ease;
+    }
 
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 30px;
-            align-items: start;
-        }
+    .btn-secondary:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+    }
 
-        /* Şasi & Araç Seçim Kutuları */
-        .search-box-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+    .car-box {
+      width: 100%;
+      height: 300px;
+      background: #0f2b5c;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
 
-        .vin-box {
-            background: #ffffff;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
 
-        .vin-title {
-            background-color: var(--primary-blue);
-            color: white;
-            padding: 10px;
-            font-weight: bold;
-            font-size: 14px;
-            border-radius: 5px;
-            text-align: center;
-            margin-bottom: 12px;
-        }
+  <section class="hero-selector-section">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <div class="search-panels">
+          <div class="vin-search-card">
+            <h2>Şasi No ile Fren Servosu Ara</h2>
+            <form id="vinSearchForm" class="vin-form">
+              <div class="input-group">
+                <input type="text" id="vinInput" maxlength="17" placeholder="Aracınızın 17 haneli Şasi Numarasını (VIN) giriniz..." required>
+                <button type="submit" class="btn-primary">BUL</button>
+              </div>
+            </form>
+          </div>
 
-        .vin-input-group {
-            display: flex;
-            gap: 5px;
-        }
+          <div class="vehicle-select-card">
+            <h3>ARACINIZI SEÇİN</h3>
+            <form id="vehicleSelectForm">
+              
+              <div class="select-step">
+                <select id="selectBrand" required>
+                  <option value="">1. Marka Seçin</option>
+                  <option value="audi">Audi</option>
+                  <option value="bmw">BMW</option>
+                  <option value="mercedes">Mercedes-Benz</option>
+                  <option value="volkswagen">Volkswagen</option>
+                </select>
+              </div>
 
-        .vin-input-group input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-size: 11px;
-        }
+              <div class="select-step">
+                <select id="selectModel" disabled required>
+                  <option value="">2. Model Seçin...</option>
+                </select>
+              </div>
 
-        .vin-input-group button {
-            background-color: var(--accent-orange);
-            color: white;
-            border: none;
-            padding: 10px 16px;
-            font-weight: bold;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+              <div class="select-step">
+                <select id="selectYear" disabled required>
+                  <option value="">3. Yıl</option>
+                </select>
+              </div>
 
-        .vehicle-select-box {
-            background: #ffffff;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            color: var(--text-dark);
-        }
+              <div class="select-step">
+                <select id="selectEngine" disabled required>
+                  <option value="">4. Motor Seçin...</option>
+                </select>
+              </div>
 
-        .select-header {
-            font-size: 12px;
-            font-weight: bold;
-            color: var(--primary-blue);
-            margin-bottom: 10px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-            text-transform: uppercase;
-        }
+              <div class="select-step">
+                <select id="selectGear" disabled required>
+                  <option value="">5. Şanzıman</option>
+                </select>
+              </div>
 
-        .select-group {
-            margin-bottom: 8px;
-        }
+              <button type="submit" id="btnFilterParts" class="btn-secondary" disabled>UYGUN PARÇALARI LİSTELE</button>
+            </form>
+          </div>
+        </div>
 
-        .select-group select {
-            width: 100%;
-            padding: 8px 10px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-size: 12px;
-            background-color: #fafafa;
-            color: #333;
-        }
+        <div class="hero-image-container">
+          <div class="car-box">Frenservosu.com Uyumlu Araç Filtresi</div>
+        </div>
 
-        /* Banner Görseli Alanı */
-        .hero-banner-display {
-            background: #112d53;
-            border-radius: 12px;
-            padding: 20px;
-            min-height: 380px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            text-align: center;
-        }
+      </div>
+    </div>
+  </section>
 
-        .hero-banner-display i {
-            font-size: 80px;
-            color: var(--accent-orange);
-            margin-bottom: 15px;
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const vehicleData = {
+        audi: {
+          models: {
+            'A3': { years: ['2018', '2019', '2020'], engines: ['1.6 TDI', '1.5 TFSI'], gears: ['Otomatik', 'Manuel'] },
+            'A4': { years: ['2016', '2017', '2018', '2019'], engines: ['2.0 TDI'], gears: ['Otomatik'] }
+          }
+        },
+        bmw: {
+          models: {
+            '3 Series': { years: ['2015', '2016', '2017'], engines: ['320i 1.6', '320d 2.0'], gears: ['Otomatik'] }
+          }
         }
+      };
 
-        .hero-banner-display h2 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            font-weight: 800;
+      const brandSelect = document.getElementById('selectBrand');
+      const modelSelect = document.getElementById('selectModel');
+      const yearSelect = document.getElementById('selectYear');
+      const engineSelect = document.getElementById('selectEngine');
+      const gearSelect = document.getElementById('selectGear');
+      const filterBtn = document.getElementById('btnFilterParts');
+
+      brandSelect.addEventListener('change', (e) => {
+        const brand = e.target.value;
+        modelSelect.innerHTML = '<option value="">2. Model Seçin...</option>';
+        resetDropdowns([yearSelect, engineSelect, gearSelect]);
+
+        if (brand && vehicleData[brand]) {
+          modelSelect.disabled = false;
+          Object.keys(vehicleData[brand].models).forEach(model => {
+            modelSelect.innerHTML += `<option value="${model}">${model}</option>`;
+          });
+        } else {
+          modelSelect.disabled = true;
         }
+      });
 
-        .hero-banner-display p {
-            font-size: 14px;
-            color: #a0aec0;
-            max-width: 500px;
+      modelSelect.addEventListener('change', (e) => {
+        const brand = brandSelect.value;
+        const model = e.target.value;
+        yearSelect.innerHTML = '<option value="">3. Yıl</option>';
+        resetDropdowns([engineSelect, gearSelect]);
+
+        if (model && vehicleData[brand].models[model]) {
+          yearSelect.disabled = false;
+          vehicleData[brand].models[model].years.forEach(year => {
+            yearSelect.innerHTML += `<option value="${year}">${year}</option>`;
+          });
         }
+      });
 
-        /* Avantajlar / Özellikler Şeridi */
-        .features-bar {
-            background-color: #ffffff;
-            border-bottom: 1px solid var(--border-color);
-            padding: 15px 0;
+      yearSelect.addEventListener('change', () => {
+        const brand = brandSelect.value;
+        const model = modelSelect.value;
+        engineSelect.innerHTML = '<option value="">4. Motor Seçin...</option>';
+        resetDropdowns([gearSelect]);
+
+        if (yearSelect.value) {
+          engineSelect.disabled = false;
+          vehicleData[brand].models[model].engines.forEach(engine => {
+            engineSelect.innerHTML += `<option value="${engine}">${engine}</option>`;
+          });
         }
+      });
 
-        .features-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            font-size: 12px;
-            font-weight: bold;
-            color: var(--primary-blue);
+      engineSelect.addEventListener('change', () => {
+        const brand = brandSelect.value;
+        const model = modelSelect.value;
+        gearSelect.innerHTML = '<option value="">5. Şanzıman</option>';
+
+        if (engineSelect.value) {
+          gearSelect.disabled = false;
+          vehicleData[brand].models[model].gears.forEach(gear => {
+            gearSelect.innerHTML += `<option value="${gear}">${gear}</option>`;
+          });
         }
+      });
 
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+      gearSelect.addEventListener('change', () => {
+        filterBtn.disabled = !gearSelect.value;
+      });
+
+      function resetDropdowns(dropdowns) {
+        dropdowns.forEach(select => {
+          select.disabled = true;
+          select.selectedIndex = 0;
+        });
+        filterBtn.disabled = true;
+      }
+
+      document.getElementById('vinSearchForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const vin = document.getElementById('vinInput').value.trim();
+        if (vin.length === 17) {
+          window.location.href = `/arama?vin=${encodeURIComponent(vin)}`;
+        } else {
+          alert('Lütfen geçerli 17 haneli Şasi No (VIN) giriniz.');
         }
-
-        .feature-item i {
-            font-size: 18px;
-            color: var(--accent-orange);
-        }
-
-        /* Kategoriler Alanı */
-        .categories-section {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-            gap: 15px;
-        }
-
-        .category-card {
-            background-color: white;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px 15px;
-            text-align: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .category-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .category-card h3 {
-            font-size: 12px;
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .category-card i {
-            font-size: 45px;
-            color: var(--primary-blue);
-        }
-
-        /* Partner Kartı */
-        .partner-box {
-            background-color: #e9ecef;
-            border-radius: 8px;
-            padding: 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            justify-content: center;
-        }
-
-        .partner-item {
-            background-color: white;
-            padding: 10px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: bold;
-            color: var(--primary-blue);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .partner-item i {
-            color: var(--accent-orange);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary-blue);
-            color: white;
-            padding: 20px 0;
-            margin-top: 40px;
-            font-
+      });
+    });
+  </script>
+</body>
+</html>
