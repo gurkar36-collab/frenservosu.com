@@ -3,148 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>frenservosu.com - Şasi No ile Fren Servosu Ara</title>
+    <title>frenservosu.com - Orijinal Yedek Parça</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-        body { background-color: #ffffff; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #ebf1f6; color: #333; }
 
-        /* Üst Menü Çubuğu (Header) */
+        /* 1. ÜST HEADER ALANI */
         header {
+            background-color: #ffffff;
+            padding: 15px 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
-            background: #ffffff;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid #d5deb8;
+            font-size: 13px;
         }
-        .logo-area { display: flex; align-items: center; gap: 10px; }
-        .logo-graphic { width: 35px; height: 35px; background: #ff8800; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 20px; }
-        .logo-text { font-size: 22px; font-weight: bold; color: #1e3a5f; }
-        .logo-text span { font-size: 11px; color: #718096; font-weight: normal; margin-left: 5px; display: inline-block; vertical-align: bottom; }
-        
-        .nav-links { display: flex; list-style: none; gap: 20px; font-size: 13px; font-weight: bold; color: #4a5568; }
-        .nav-links li { cursor: pointer; }
-        .user-panel { font-size: 13px; font-weight: bold; color: #2d3748; }
+        .logo-section { display: flex; align-items: center; gap: 12px; }
+        /* Görseldeki turuncu/mavi oklu logo alanı */
+        .logo-box { position: relative; width: 40px; height: 40px; }
+        .logo-box::before, .logo-box::after {
+            content: ''; position: absolute; width: 0; height: 0; border-style: solid;
+        }
+        .logo-box::before {
+            border-width: 0 0 30px 30px; border-color: transparent transparent #163e6e transparent; left: 0; bottom: 0;
+        }
+        .logo-box::after {
+            border-width: 30px 30px 0 0; border-color: #ff8800 transparent transparent transparent; right: 0; top: 0;
+        }
+        .logo-text { font-size: 24px; font-weight: bold; color: #11294a; }
+        .logo-text span { font-size: 11px; color: #7f8c8d; font-weight: normal; margin-left: 6px; }
 
-        /* Ana Görsel Alanı (Koyu Lacivert Bölüm) */
-        .hero-banner {
-            background-color: #0c2340;
-            padding: 50px 5%;
+        .nav-menu { display: flex; list-style: none; gap: 22px; font-weight: bold; color: #445870; font-size: 12px; }
+        .nav-menu li { cursor: pointer; }
+        .right-meta { font-weight: bold; color: #2c3e50; }
+
+        /* 2. KOYU LACİVERT VİTRİN ALANI (HERO) */
+        .hero-section {
+            background-color: #0c2440;
+            padding: 40px 10%;
             display: flex;
             justify-content: center;
-            overflow: hidden;
-        }
-        .hero-container {
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
             position: relative;
         }
+        .hero-container { width: 100%; max-width: 1200px; display: flex; justify-content: space-between; align-items: flex-start; }
 
-        /* Sol Taraf: Arama Panelleri */
-        .left-side { width: 440px; z-index: 5; }
+        /* SOL PANEL: ARAMA FORMLARI */
+        .left-forms { width: 420px; }
 
-        /* 1. Şasi No Sorgulama Kutusu */
-        .vin-box {
-            background: #153258;
-            border: 1px solid #234775;
+        /* Şasi No Giriş Kutusu */
+        .vin-container {
+            background-color: #143359;
+            border: 1px solid #1f4878;
             border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
+            padding: 18px;
+            margin-bottom: 15px;
         }
-        .vin-title { font-size: 18px; font-weight: bold; color: #ffffff; margin-bottom: 15px; }
-        .vin-form-row { display: flex; background: #ffffff; border-radius: 4px; padding: 3px; }
-        .vin-form-row input {
-            flex: 1; border: none; padding: 12px; font-size: 13px; outline: none; border-radius: 4px;
+        .vin-heading { font-size: 19px; font-weight: bold; color: #ffffff; margin-bottom: 12px; }
+        .vin-search-row { display: flex; background: #ffffff; border-radius: 5px; padding: 3px; }
+        .vin-search-row input {
+            flex: 1; border: none; padding: 11px; font-size: 13px; outline: none; border-radius: 4px; color: #666;
         }
-        .vin-btn {
-            background: #ff8800; color: white; border: none; padding: 0 25px;
+        .vin-find-btn {
+            background-color: #ff9400; color: #ffffff; border: none; padding: 0 26px;
             font-weight: bold; border-radius: 4px; cursor: pointer; font-size: 14px;
         }
 
-        /* 2. Aracınızı Seçin Kutusu */
-        .filter-box {
-            background: #ffffff;
-            border-radius: 8px;
-            padding: 22px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        /* 5 Adımlı Seçim Listesi */
+        .vehicle-filter-card { background-color: #ffffff; border-radius: 8px; padding: 20px; }
+        .filter-card-heading { font-size: 12px; font-weight: bold; color: #11294a; margin-bottom: 12px; }
+        .select-field-wrapper { margin-bottom: 9px; position: relative; }
+        .select-field-wrapper select {
+            width: 100%; padding: 10px 12px 10px 35px; border: 1px solid #cccccc;
+            border-radius: 4px; background-color: #ffffff; color: #555; font-size: 13px;
+            outline: none; cursor: pointer; appearance: none;
         }
-        .filter-box-title {
-            font-size: 13px; font-weight: bold; color: #0c2340;
-            margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px;
+        /* Seçim kutularının içindeki küçük simge alanı */
+        .select-field-wrapper::before {
+            content: '🚗'; position: absolute; left: 12px; top: 11px; font-size: 12px; opacity: 0.6;
         }
-        .select-row { margin-bottom: 12px; }
-        .select-row select {
-            width: 100%; padding: 11px 12px; border: 1px solid #cbd5e1;
-            border-radius: 4px; background: #ffffff; color: #4a5568;
-            font-size: 13px; outline: none; cursor: pointer;
-        }
-
-        /* Sağ Taraf: Birebir Araba ve Servo Grafiği */
-        .right-side {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            position: relative;
-            height: 400px;
-        }
-        /* Arkadaki Gri Sedan Araba */
-        .car-display {
-            width: 620px;
-            height: auto;
-            opacity: 0.9;
-            z-index: 1;
-        }
-        /* Ön Tekerlek Hizasındaki Fren Parçası Düzeni */
-        .servo-display {
-            position: absolute;
-            left: 5%;
-            top: 10%;
-            z-index: 3;
-        }
-        /* Mavi Işıklı Daire Efekti */
-        .glow-circle {
-            position: absolute;
-            width: 220px;
-            height: 220px;
-            border: 2px dashed rgba(0, 238, 255, 0.6);
-            border-radius: 50%;
-            left: -20px;
-            top: -10px;
-            box-shadow: 0 0 20px rgba(0, 238, 255, 0.2);
-        }
-        .servo-graphic {
-            width: 180px;
-            height: auto;
-            filter: drop-shadow(0 0 15px rgba(0, 238, 255, 0.7));
-            position: relative;
-            z-index: 4;
+        .select-field-wrapper::after {
+            content: '▼'; font-size: 8px; color: #999; position: absolute; right: 12px; top: 15px; pointer-events: none;
         }
 
-        /* En Alttaki 4'lü Avantaj Çubuğu */
-        .bottom-features {
-            display: flex;
-            justify-content: space-around;
-            background: #f8fafc;
-            padding: 18px 5%;
-            border-bottom: 1px solid #e2e8f0;
+        /* SAĞ PANEL: ARABA VE PARÇA GRAFİĞİ */
+        .right-graphics { flex: 1; height: 380px; position: relative; display: flex; justify-content: flex-end; align-items: center; }
+        .main-car-image { width: 590px; height: auto; z-index: 1; pointer-events: none; }
+        
+        /* Ön taraftaki servo yerleşimi */
+        .servo-wrapper { position: absolute; left: 4%; top: 8%; z-index: 3; }
+        .servo-glow-ring {
+            position: absolute; width: 230px; height: 230px;
+            border: 2px dashed rgba(0, 213, 255, 0.5); border-radius: 50%;
+            left: -25px; top: -15px; box-shadow: 0 0 15px rgba(0, 213, 255, 0.1);
         }
-        .feature-cell { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: bold; color: #334155; }
-        .feature-dot { width: 6px; height: 6px; background: #ff8800; border-radius: 50%; }
+        .servo-product-image { width: 180px; height: auto; filter: drop-shadow(0 0 12px rgba(0, 213, 255, 0.6)); }
+        
+        /* Sağ üstteki %100 uyumluluk rozeti */
+        .compatibility-badge {
+            position: absolute; right: 15%; top: 15%; background-color: rgba(255,255,255,0.85);
+            border: 1px solid #ddd; padding: 6px 12px; font-size: 11px; font-weight: bold; border-radius: 4px; z-index: 2;
+        }
+
+        /* 3. GRİ AVANTAJLAR BARIDIR */
+        .benefits-ribbon {
+            background-color: #f0f4f8; padding: 15px 10%; display: flex; justify-content: space-between; border-bottom: 1px solid #e1e8f0;
+        }
+        .benefit-block { font-size: 12px; font-weight: bold; color: #475a70; display: flex; align-items: center; gap: 6px; }
+        .benefit-block::before { content: '🔘'; font-size: 10px; opacity: 0.7; }
+
+        /* 4. EN ALTTAKİ 5'Lİ KATEGORİ KUTULARI */
+        .bottom-catalog-section { padding: 30px 10%; display: flex; justify-content: center; background-color: #ffffff; }
+        .catalog-container { width: 100%; max-width: 1200px; display: grid; grid-template-columns: repeat(5, 1fr) 220px; gap: 15px; }
+        
+        .catalog-card {
+            background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 15px;
+            display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center; height: 160px;
+        }
+        .catalog-card-title { font-size: 11px; font-weight: bold; color: #11294a; text-transform: uppercase; margin-bottom: 10px; }
+        .catalog-card-img { width: 80px; height: auto; max-height: 80px; object-fit: contain; opacity: 0.8; }
+        
+        /* En sağdaki xparca ortaklık paneli */
+        .xparca-side-panel { display: flex; flex-direction: column; gap: 6px; }
+        .xparca-btn {
+            background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 4px; padding: 10px;
+            font-size: 11px; font-weight: bold; color: #334155; text-align: center; text-transform: uppercase; cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Üst Menü Bölümü -->
+    <!-- 1. ÜST HEADER -->
     <header>
-        <div class="logo-area">
-            <div class="logo-graphic">⇄</div>
-            <div class="logo-text">frenservosu.com <span>powered by xparca.com</span></div>
+        <div class="logo-section">
+            <div class="logo-box"></div>
+            <div class="logo-text">frenservosu.com<span>powered by xparca.com</span></div>
         </div>
-        <ul class="nav-links">
+        <ul class="nav-menu">
             <li>KATEGORİLER</li>
             <li>MARKALAR</li>
             <li>AVANTAJLARA BAKIŞ</li>
@@ -152,56 +146,61 @@
             <li>İLETİŞİM</li>
             <li>FİRMA PROFİLİ</li>
         </ul>
-        <div class="user-panel">👤 HESABIM &nbsp;&nbsp; 🛒 SEPETİM</div>
+        <div class="right-meta">👤 HESABIM &nbsp;&nbsp; 🛒 SEPETİM (TR)</div>
     </header>
 
-    <!-- Lacivert Giriş Alanı -->
-    <section class="hero-banner">
+    <!-- 2. ANA LACİVERT ALAN -->
+    <section class="hero-section">
         <div class="hero-container">
             
-            <!-- Sol Formlar -->
-            <div class="left-side">
-                <!-- Şasi No Sorgulama -->
-                <div class="vin-box">
-                    <div class="vin-title">Şasi No ile Fren Servosu Ara</div>
-                    <div class="vin-form-row">
+            <!-- Sol Form Bölümleri -->
+            <div class="left-forms">
+                <!-- Şasi No Sorgu -->
+                <div class="vin-container">
+                    <div class="vin-heading">Şasi No ile Fren Servosu Ara</div>
+                    <div class="vin-search-row">
                         <input type="text" placeholder="Aracınızın 17 haneli Şasi Numarasını (VIN) giriniz...">
-                        <button class="vin-btn">BUL</button>
+                        <button class="vin-find-btn">BUL</button>
                     </div>
                 </div>
 
-                <!-- 5 Adımlı Filtreleme -->
-                <div class="filter-box">
-                    <div class="filter-box-title">ARACINIZI SEÇİN</div>
-                    <div class="select-row"><select><option>1. Marka</option></select></div>
-                    <div class="select-group select-row"><select disabled><option>2. Model Seçin...</option></select></div>
-                    <div class="select-row"><select disabled><option>3. Yıl</option></select></div>
-                    <div class="select-row"><select disabled><option>4. Motor Seçin...</option></select></div>
-                    <div class="select-row"><select disabled><option>5. Şanzıman</option></select></div>
+                <!-- Araç Seçici -->
+                <div class="vehicle-filter-card">
+                    <div class="filter-card-heading">ARACINIZI SEÇİN</div>
+                    <div class="select-field-wrapper"><select><option>1. Marka</option></select></div>
+                    <div class="select-field-wrapper"><select disabled><option>2. Model Seçin...</option></select></div>
+                    <div class="select-field-wrapper"><select disabled><option>3. Yıl</option></select></div>
+                    <div class="select-field-wrapper"><select disabled><option>4. Motor Seçin...</option></select></div>
+                    <div class="select-field-wrapper"><select disabled><option>5. Şanzıman</option></select></div>
                 </div>
             </div>
 
-            <!-- Sağ Taraf Görselleri -->
-            <div class="right-side">
-                <!-- Ön Planda Parlayan Fren Servosu -->
-                <div class="servo-display">
-                    <div class="glow-circle"></div>
-                    <img src="https://flaticon.com" class="servo-graphic" alt="Fren Servosu">
+            <!-- Sağ Görsel Bölümleri -->
+            <div class="right-graphics">
+                <div class="compatibility-badge">100% UYUMLULUK GARANTİSİ</div>
+                
+                <!-- Öndeki parça ve mavi daire halkası -->
+                <div class="servo-wrapper">
+                    <div class="servo-glow-ring"></div>
+                    <img src="https://flaticon.com" class="servo-product-image" alt="Servo Grafiği">
                 </div>
-                <!-- Arka Plandaki Gri Sedan Araç -->
-                <img src="https://pngplay.com" class="car-display" alt="Araç">
+
+                <!-- Arkadaki gri sedan araba çizgisi -->
+                <img src="https://pngplay.com" class="main-car-image" alt="Orijinal Araç Görseli">
             </div>
 
         </div>
     </section>
 
-    <!-- Alt Özellikler Barı -->
-    <div class="bottom-features">
-        <div class="feature-cell"><div class="feature-dot"></div> ORİJİNAL VE GARANTİLİ ÜRÜNLER</div>
-        <div class="feature-cell"><div class="feature-dot"></div> HIZLI VE ÜCRETSİZ KARGO</div>
-        <div class="feature-cell"><div class="feature-dot"></div> UZMAN TEKNİK DESTEK</div>
-        <div class="feature-cell"><div class="feature-dot"></div> KOLAY İADE</div>
+    <!-- 3. AVANTAJ ŞERİDİ -->
+    <div class="benefits-ribbon">
+        <div class="benefit-block">ORİJİNAL VE GARANTİLİ ÜRÜNLER</div>
+        <div class="benefit-block">HIZLI VE ÜCRETSİZ KARGO</div>
+        <div class="benefit-block">UZMAN TEKNİK DESTEK</div>
+        <div class="benefit-block">KOLAY İADE</div>
     </div>
 
-</body>
-</html>
+    <!-- 4. EN ALTTAKİ KATEGORİ KUTULARI -->
+    <section class="bottom-catalog-section">
+        <div class="catalog-container">
+            
