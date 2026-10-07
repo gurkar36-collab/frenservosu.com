@@ -10,269 +10,257 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         body {
-            background-color: #f4f6f8;
-            color: #333;
+            background-color: #dce3ea;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        /* Top Header Navigation */
-        .top-nav {
+        /* Ana Ekran Konteyneri (Monitör İçi Birebir Arayüz) */
+        .site-wrapper {
+            width: 100%;
+            max-width: 1200px;
             background-color: #ffffff;
-            border-bottom: 1px solid #e1e5eb;
-            padding: 12px 5%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 4px;
+            overflow: hidden;
         }
 
-        .logo-container {
+        /* 1. ÜST HEADER BAR */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 25px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e1e8ed;
+        }
+
+        .logo-area {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
         }
 
         .logo-icon {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, #1b365d, #0d1e36);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #f39c12;
-            font-size: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-size: 26px;
+            color: #1a365d;
         }
 
-        .logo-text {
+        .logo-title {
             font-size: 22px;
             font-weight: 800;
-            color: #1b365d;
+            color: #1a365d;
             letter-spacing: -0.5px;
         }
 
         .logo-sub {
             font-size: 11px;
-            color: #666;
-            font-weight: 600;
-            margin-left: 2px;
+            color: #555;
+            font-weight: bold;
         }
 
         .logo-sub span {
-            color: #1b365d;
-            font-weight: 700;
+            color: #1a365d;
         }
 
-        .main-menu {
+        .header-menu {
             display: flex;
-            align-items: center;
-            gap: 24px;
+            gap: 20px;
             list-style: none;
         }
 
-        .main-menu a {
+        .header-menu a {
             text-decoration: none;
             color: #2c3e50;
+            font-size: 12px;
             font-weight: 700;
-            font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
         }
 
-        .main-menu a.dropdown::after {
+        .header-menu .dropdown::after {
             content: ' \f107';
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
-            margin-left: 4px;
         }
 
-        .user-actions {
+        .header-user {
             display: flex;
-            align-items: center;
-            gap: 18px;
-            font-size: 12px;
+            gap: 15px;
+            font-size: 11px;
             font-weight: 700;
-            color: #1b365d;
+            color: #1a365d;
         }
 
-        .user-actions div {
+        .header-user div {
+            cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 6px;
-            cursor: pointer;
+            gap: 4px;
         }
 
-        /* Hero Banner Section */
-        .hero-section {
-            background: linear-gradient(110deg, #0d2342 0%, #163660 45%, #2a5288 100%);
-            position: relative;
-            padding: 30px 5% 40px 5%;
-            overflow: hidden;
-            min-height: 400px;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* 2. HERO / KOYU MAVİ BANNER ALANI */
+        .hero-banner {
+            background: linear-gradient(135deg, #091e3a 0%, #112d55 50%, #1a3e6d 100%);
+            padding: 25px 30px;
             display: flex;
-            gap: 25px;
+            justify-content: space-between;
             position: relative;
-            z-index: 2;
+            min-height: 380px;
         }
 
-        .search-column {
-            width: 380px;
+        .hero-left {
+            width: 360px;
+            z-index: 2;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
-        /* Şasi No Box */
-        .chassis-box {
-            background-color: #0b1a30;
-            border: 1px solid #234574;
+        /* Şasi No Kutusu */
+        .chassis-card {
+            background-color: #0d274c;
+            border: 1px solid #1e4173;
             border-radius: 12px;
-            padding: 16px;
-            color: #ffffff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .chassis-box h3 {
-            font-size: 18px;
-            margin-bottom: 12px;
-            font-weight: 700;
+            padding: 12px 16px;
             text-align: center;
         }
 
-        .input-group {
+        .chassis-card h2 {
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .chassis-input-group {
             display: flex;
             background: #ffffff;
             border-radius: 6px;
-            padding: 3px;
+            overflow: hidden;
+            padding: 2px;
         }
 
-        .input-group input {
+        .chassis-input-group input {
             border: none;
             outline: none;
-            padding: 8px 12px;
+            padding: 6px 10px;
             flex: 1;
+            font-size: 11px;
+            color: #666;
+        }
+
+        .btn-bul {
+            background: #f39c12;
+            color: #ffffff;
+            border: none;
+            padding: 6px 18px;
+            font-weight: 800;
             font-size: 12px;
             border-radius: 4px;
-        }
-
-        .btn-search {
-            background: linear-gradient(to bottom, #f39c12, #e67e22);
-            color: white;
-            border: none;
-            padding: 8px 18px;
-            font-weight: 800;
-            border-radius: 5px;
             cursor: pointer;
-            font-size: 13px;
         }
 
-        /* Vehicle Selector Box */
-        .vehicle-box {
+        /* Araç Seçim Paneli */
+        .vehicle-select-card {
             background-color: #ffffff;
-            border-radius: 12px;
-            padding: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            padding: 12px 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        .vehicle-box-title {
-            font-size: 13px;
+        .vehicle-title {
+            font-size: 11px;
             font-weight: 800;
-            color: #1b365d;
-            border-bottom: 2px solid #e1e5eb;
-            padding-bottom: 6px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-bottom: 8px;
         }
 
-        .select-group {
+        .select-list {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
         }
 
-        .select-item {
+        .select-box {
             display: flex;
             align-items: center;
             border: 1px solid #cccccc;
-            border-radius: 6px;
-            padding: 6px 10px;
-            background: #fdfdfd;
+            border-radius: 5px;
+            padding: 5px 8px;
+            background: #fff;
         }
 
-        .select-item i {
-            color: #1b365d;
-            width: 20px;
-            font-size: 14px;
+        .select-box i {
+            color: #1a365d;
+            font-size: 13px;
+            width: 22px;
         }
 
-        .select-item select {
-            width: 100%;
+        .select-box select {
             border: none;
             outline: none;
-            background: transparent;
-            font-size: 12px;
-            color: #555;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        /* Hero Visual Right Side */
-        .visual-column {
-            flex: 1;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .car-image-wrapper {
-            position: relative;
             width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 11px;
+            color: #444;
+            font-weight: 600;
+            background: transparent;
         }
 
-        /* Feature Badges Bar */
-        .features-bar {
-            background-color: #eef2f5;
-            border-bottom: 1px solid #dce2e8;
-            padding: 12px 5%;
+        /* Görsel Alanı (Sağ Taraf) */
+        .hero-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-car-render {
+            max-width: 90%;
+            height: auto;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
+        }
+
+        /* 3. ÖZELLİK VE AVANTAJ BARI */
+        .features-strip {
+            background-color: #eef2f6;
             display: flex;
             justify-content: space-around;
-            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #dcdcdc;
         }
 
-        .feature-item {
+        .feature-box {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             font-size: 11px;
             font-weight: 800;
-            color: #1b365d;
-            text-transform: uppercase;
+            color: #1a365d;
         }
 
-        .feature-item i {
-            font-size: 18px;
-            color: #1b365d;
+        .feature-box i {
+            font-size: 16px;
         }
 
-        /* Bottom Grid Section */
-        .bottom-section {
-            max-width: 1200px;
-            margin: 25px auto;
-            padding: 0 15px;
+        /* 4. ALT KATEGORİ VE ROZET GRIDİ */
+        .grid-section {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            gap: 15px;
+            gap: 12px;
+            padding: 15px 25px;
+            background-color: #ffffff;
         }
+
+        .cat-card {
+            border: 1px solid #e1e8ed;
+            border-radius:
