@@ -1,576 +1,218 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>frenservosu.com - powered by xparca.com</title>
-  <style>
-    :root {
-      --navy-dark: #0a192f;
-      --navy-main: #0e2b5c;
-      --navy-card: #071836;
-      --orange-main: #f38218;
-      --bg-gray: #eef2f6;
-      --border-gray: #cbd5e1;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frenservosu.com - Yedek Parça</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #ffffff; color: #333; }
+        
+        /* En Üst Header Menü Bölümü */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            font-size: 13px;
+        }
+        .logo-area { font-size: 22px; font-weight: bold; color: #11294a; display: flex; align-items: center; gap: 5px; }
+        .logo-area span { color: #ff8800; }
+        .top-nav { display: flex; gap: 20px; list-style: none; font-weight: 600; color: #555; }
+        .top-nav li { cursor: pointer; }
+        .top-nav li:hover { color: #ff8800; }
+        .user-menu { display: flex; gap: 15px; font-weight: bold; color: #222; }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-    }
+        /* Ana Görsel Alanı (Hero Section) */
+        .hero-section {
+            background: radial-gradient(circle at 70% 50%, #1a3c61 0%, #0b1a2e 100%);
+            padding: 50px 8%;
+            min-height: 520px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .hero-container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    body {
-      background-color: var(--bg-gray);
-      color: #333;
-    }
+        /* Sol Bölüm: Arama ve Seçim Formları */
+        .left-panel { width: 440px; z-index: 5; }
 
-    /* HEADER */
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
-    }
+        /* 1. Şasi No Arama Kutusu */
+        .shasi-box {
+            background: #163252;
+            border: 1px solid #224975;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .shasi-title { font-size: 18px; font-weight: bold; color: #fff; margin-bottom: 12px; }
+        .shasi-input-wrapper { display: flex; background: #fff; border-radius: 6px; padding: 4px; }
+        .shasi-input-wrapper input {
+            flex: 1; border: none; padding: 10px; font-size: 13px; outline: none; border-radius: 4px;
+        }
+        .shasi-btn {
+            background: #ff8800; color: white; border: none; padding: 0 25px;
+            font-weight: bold; border-radius: 5px; cursor: pointer; transition: 0.2s;
+        }
+        .shasi-btn:hover { background: #e07700; }
 
-    .container {
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 0 15px;
-    }
+        /* 2. Aracınızı Seçin Menüsü */
+        .filter-card {
+            background: white;
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        .filter-card-title {
+            font-size: 14px; font-weight: bold; color: #11294a;
+            margin-bottom: 15px; border-left: 4px solid #ff8800; padding-left: 8px;
+        }
+        .select-group { margin-bottom: 12px; position: relative; }
+        .select-group select {
+            width: 100%; padding: 11px 15px; border: 1px solid #dcdcdc;
+            border-radius: 6px; background: #fdfdfd; color: #444;
+            font-size: 14px; outline: none; cursor: pointer; appearance: none;
+        }
+        .select-group::after {
+            content: '▼'; font-size: 10px; color: #aaa; position: absolute; right: 15px; top: 16px; pointer-events: none;
+        }
 
-    .header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 0;
-    }
+        /* Sağ Bölüm: Efektli Araba ve Parça Görseli */
+        .right-panel {
+            flex: 1; position: relative; display: flex; justify-content: flex-end; align-items: center;
+        }
+        /* Temsili Şık Araba Görseli */
+        .car-img {
+            width: 100%; max-width: 620px; height: auto;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+            z-index: 1;
+        }
+        /* Havada Duran Parlayan Parça Efekti */
+        .floating-part-container {
+            position: absolute; left: 10%; top: -10%; z-index: 3;
+            animation: floatAnim 4s ease-in-out infinite;
+        }
+        .servo-img {
+            width: 180px; height: auto;
+            filter: drop-shadow(0 0 20px rgba(0, 255, 234, 0.6));
+        }
+        /* Mavi Parlama Halkası */
+        .glow-ring {
+            position: absolute; width: 220px; height: 220px;
+            border: 2px dashed rgba(0, 255, 234, 0.4); border-radius: 50%;
+            left: -20px; top: -20px; animation: spin 20s linear infinite;
+        }
+        /* %100 Uyumluluk Rozeti */
+        .badge-100 {
+            position: absolute; right: 10%; top: 10%; background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.2); padding: 8px 15px;
+            border-radius: 30px; color: #fff; font-size: 12px; font-weight: bold; z-index: 4;
+        }
 
-    .logo-box {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+        /* Alt Bilgi Çubuğu (Avantajlar) */
+        .features-bar {
+            display: flex; justify-content: space-around; background: #f8fbc2;
+            background: #f4f7fc; padding: 20px 8%; border-bottom: 1px solid #e2e8f0;
+        }
+        .feature-item { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: bold; color: #34495e; }
+        .feature-icon { font-size: 20px; }
 
-    .logo-title {
-      font-size: 24px;
-      font-weight: 900;
-      color: var(--navy-main);
-      text-decoration: none;
-    }
-
-    .logo-sub {
-      font-size: 10px;
-      color: #64748b;
-      line-height: 1.1;
-      border-left: 2px solid #e2e8f0;
-      padding-left: 10px;
-    }
-
-    .header-nav-right {
-      display: flex;
-      gap: 20px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--navy-main);
-    }
-
-    /* MAIN MENU */
-    nav {
-      background: #ffffff;
-      border-top: 1px solid #f1f5f9;
-      border-bottom: 2px solid #cbd5e1;
-      padding: 10px 0;
-    }
-
-    .menu-list {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--navy-main);
-    }
-
-    /* HERO SECTION */
-    .hero {
-      background: linear-gradient(135deg, #0e2b5c 0%, #071836 100%);
-      padding: 30px 0;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 380px 1fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    /* VIN BOX */
-    .vin-card {
-      background: #061329;
-      border: 1px solid #1e3a8a;
-      border-radius: 12px;
-      padding: 14px;
-      margin-bottom: 15px;
-    }
-
-    .vin-card h2 {
-      color: #ffffff;
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .vin-input-group {
-      display: flex;
-      background: #ffffff;
-      border-radius: 6px;
-      padding: 3px;
-    }
-
-    .vin-input-group input {
-      flex: 1;
-      border: none;
-      padding: 8px 12px;
-      font-size: 11px;
-      outline: none;
-    }
-
-    .btn-orange {
-      background: var(--orange-main);
-      color: #ffffff;
-      border: none;
-      padding: 8px 22px;
-      font-weight: 800;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 12px;
-    }
-
-    /* FILTER CARD */
-    .filter-card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 15px;
-    }
-
-    .filter-card h3 {
-      font-size: 11px;
-      font-weight: 800;
-      color: #334155;
-      margin-bottom: 10px;
-      border-bottom: 2px solid var(--orange-main);
-      display: inline-block;
-      padding-bottom: 3px;
-    }
-
-    .select-group {
-      margin-bottom: 8px;
-    }
-
-    .select-group select {
-      width: 100%;
-      padding: 8px 10px;
-      border: 1px solid var(--border-gray);
-      border-radius: 6px;
-      font-size: 12px;
-      outline: none;
-      background: #f8fafc;
-      color: #334155;
-    }
-
-    .select-group select:disabled {
-      background: #f1f5f9;
-      opacity: 0.6;
-    }
-
-    /* HERO BANNER IMAGE */
-    .hero-graphic {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 50px 20px;
-      border-radius: 16px;
-      border: 1px dashed rgba(255, 255, 255, 0.2);
-    }
-
-    .hero-graphic h1 {
-      font-size: 28px;
-      font-weight: 900;
-      color: #60a5fa;
-      margin-bottom: 8px;
-    }
-
-    .hero-graphic p {
-      font-size: 14px;
-      color: #cbd5e1;
-    }
-
-    /* TRUST BADGES */
-    .trust-bar {
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
-      padding: 14px 0;
-    }
-
-    .badges-grid {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      font-weight: 800;
-      color: var(--navy-main);
-    }
-
-    .badge-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* CATEGORIES & SIDEBAR */
-    .main-section {
-      padding: 30px 0;
-    }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: 1fr 220px;
-      gap: 20px;
-    }
-
-    .categories-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
-    }
-
-    .category-card {
-      background: #ffffff;
-      border: 1px solid var(--border-gray);
-      border-radius: 8px;
-      padding: 15px 10px;
-      text-align: center;
-      font-size: 10px;
-      font-weight: 800;
-      color: var(--navy-main);
-    }
-
-    .category-card .icon {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    .sidebar-partners {
-      background: #cbd5e1;
-      border-radius: 8px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .partner-card {
-      background: #ffffff;
-      border: 1px solid #94a3b8;
-      border-radius: 6px;
-      padding: 10px;
-      font-size: 10px;
-      font-weight: 800;
-      color: var(--navy-main);
-      text-align: center;
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--navy-main);
-      color: #ffffff;
-      padding: 15px 0;
-      font-size: 11px;
-    }
-
-    .footer-flex {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  </style>
+        /* Animasyon Tanımları */
+        @keyframes floatAnim {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        @keyframes spin { 100% { transform: rotate(30deg); } }
+    </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container header-top">
-      <div class="logo-box">
-        <a href="#" class="logo-title">⚙️ frenservosu.com</a>
-        <div class="logo-sub">powered by<br><b>xparca.com</b></div>
-      </div>
-      <div class="header-nav-right">
-        <span>👤 HESABIM</span>
-        <span>🛒 SEPETİM</span>
-        <span>TR ▾</span>
-      </div>
-    </div>
-    <nav>
-      <div class="container">
-        <ul class="menu-list">
-          <li>≡ KATEGORİLER ▾</li>
-          <li>MARKALAR</li>
-          <li>AVANTAJLARA BAKIŞ</li>
-          <li>BLOG</li>
-          <li>İLETİŞİM</li>
-          <li>FİRMA PROFİLİ</li>
+    <!-- Üst Menü -->
+    <header>
+        <div class="logo-area">⚙️ fren<span>servosu</span>.com</div>
+        <ul class="top-nav">
+            <li>KATEGORİLER</li>
+            <li>MARKALAR</li>
+            <li>AVANTAJLARA BAKIŞ</li>
+            <li>BLOG</li>
+            <li>İLETİŞİM</li>
         </ul>
-      </div>
-    </nav>
-  </header>
+        <div class="user-menu">👤 HESABIM | 🛒 SEPETİM</div>
+    </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="container hero-grid">
-      
-      <!-- ARAÇ SEÇİMİ VE ŞASİ ARAMA -->
-      <div>
-        <div class="vin-card">
-          <h2>Şasi No ile Fren Servosu Ara</h2>
-          <div class="vin-input-group">
-            <input type="text" id="vinInput" maxlength="17" placeholder="Aracınızın 17 haneli Şasi Numarasını (VIN) giriniz...">
-            <button class="btn-orange">BUL</button>
-          </div>
+    <!-- Ana Ekran -->
+    <section class="hero-section">
+        <div class="hero-container">
+            
+            <!-- Sol Panel: Formlar -->
+            <div class="left-panel">
+                <!-- Şasi No Sorgulama -->
+                <div class="shasi-box">
+                    <div class="shasi-title">Şasi No ile Fren Servosu Ara</div>
+                    <div class="shasi-input-wrapper">
+                        <input type="text" placeholder="Aracınızın 17 haneli Şasi Numarasını (VIN) giriniz...">
+                        <button class="shasi-btn">BUL</button>
+                    </div>
+                </div>
+
+                <!-- Adım Adım Araç Filtresi -->
+                <div class="filter-card">
+                    <div class="filter-card-title">ARACINIZI SEÇİN</div>
+                    <div class="select-group">
+                        <select><option>1. Marka</option></select>
+                    </div>
+                    <div class="select-group">
+                        <select disabled><option>2. Model Seçin...</option></select>
+                    </div>
+                    <div class="select-group">
+                        <select disabled><option>3. Yıl</option></select>
+                    </div>
+                    <div class="select-group">
+                        <select disabled><option>4. Motor Seçin...</option></select>
+                    </div>
+                    <div class="select-group">
+                        <select disabled><option>5. Şanzıman</option></select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sağ Panel: Araba ve Havada Duran Parça Grafiği -->
+            <div class="right-panel">
+                <div class="badge-100">✓ %100 UYUMLULUK GARANTİSİ</div>
+                
+                <!-- Havada parlayan mekanik parça alanı -->
+                <div class="floating-part-container">
+                    <div class="glow-ring"></div>
+                    <img src="https://unsplash.com" class="servo-img" alt="Fren Parçası">
+                </div>
+
+                <!-- Modern Araba Görseli -->
+                <img src="https://unsplash.com" class="car-img" alt="Araç">
+            </div>
+
         </div>
+    </section>
 
-        <div class="filter-card">
-          <h3>ARACINIZI SEÇİN</h3>
-          
-          <div class="select-group">
-            <select id="brandSelect">
-              <option value="">🚗 1. Marka</option>
-              <option value="alfa">Alfa Romeo</option>
-              <option value="audi">Audi</option>
-              <option value="bmw">BMW</option>
-              <option value="citroen">Citroën</option>
-              <option value="cupra">Cupra</option>
-              <option value="dacia">Dacia</option>
-              <option value="ds">DS Automobiles</option>
-              <option value="fiat">Fiat / Tofaş</option>
-              <option value="ford">Ford</option>
-              <option value="honda">Honda</option>
-              <option value="hyundai">Hyundai</option>
-              <option value="isuzu">Isuzu</option>
-              <option value="iveco">Iveco</option>
-              <option value="jaguar">Jaguar</option>
-              <option value="jeep">Jeep</option>
-              <option value="kia">Kia</option>
-              <option value="lancia">Lancia</option>
-
-              <option value="landrover">Land Rover</option>
-              <option value="mazda">Mazda</option>
-              <option value="mercedes">Mercedes-Benz</option>
-              <option value="mini">Mini</option>
-              <option value="mitsubishi">Mitsubishi</option>
-              <option value="nissan">Nissan</option>
-              <option value="opel">Opel</option>
-              <option value="peugeot">Peugeot</option>
-              <option value="porsche">Porsche</option>
-              <option value="renault">Renault</option>
-              <option value="seat">Seat</option>
-              <option value="skoda">Škoda</option>
-              <option value="ssangyong">SsangYong / KGM</option>
-              <option value="subaru">Subaru</option>
-
-              <option value="suzuki">Suzuki</option>
-              <option value="togg">Togg</option>
-              <option value="toyota">Toyota</option>
-              <option value="volkswagen">Volkswagen</option>
-              <option value="volvo">Volvo</option>
-            </select>
-          </div>
-
-          <div class="select-group">
-            <select id="modelSelect" disabled>
-              <option value="">🚘 2. Model Seçin...</option>
-            </select>
-          </div>
-
-          <div class="select-group">
-            <select id="yearSelect" disabled>
-              <option value="">📅 3. Yıl</option>
-            </select>
-          </div>
-
-          <div class="select-group">
-            <select id="engineSelect" disabled>
-              <option value="">⚙️ 4. Motor Seçin...</option>
-            </select>
-          </div>
-
-          <div class="select-group">
-            <select id="gearSelect" disabled>
-              <option value="">🕹️ 5. Şanzıman</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <!-- SAĞ BANNER -->
-      <div class="hero-graphic">
-        <div style="font-size: 70px; margin-bottom: 10px;">🏎️⚙️</div>
-        <h1>%100 OEM STANDARDI</h1>
-        <p>Orijinal ve Garantili Fren Servoları</p>
-        <small style="margin-top: 15px; color: #93c5fd;">Şasi Numarası (VIN) İle %100 Doğru Parça Tespiti</small>
-      </div>
-
+    <!-- Alt İkonlu Bilgi Barı -->
+    <div class="features-bar">
+        <div class="feature-item"><span class="feature-icon">🛡️</span> ORİJİNAL VE GARANTİLİ ÜRÜNLER</div>
+        <div class="feature-item"><span class="feature-icon">🚚</span> HIZLI VE ÜCRETSİZ KARGO</div>
+        <div class="feature-item"><span class="feature-icon">👨‍🔧</span> UZMAN TEKNİK DESTEK</div>
+        <div class="feature-item"><span class="feature-icon">🔄</span> KOLAY İADE</div>
     </div>
-  </section>
 
-  <!-- GÜVENLİK ROZETLERİ -->
-  <section class="trust-bar">
-    <div class="container badges-grid">
-      <div class="badge-item">🎯 ORİJİNAL VE GARANTİLİ ÜRÜNLER</div>
-      <div class="badge-item">🚚 HIZLI VE ÜCRETSİZ KARGO</div>
-      <div class="badge-item">👨‍🔧 UZMAN TEKNİK DESTEK</div>
-      <div class="badge-item">🔄 KOLAY İADE</div>
-    </div>
-  </section>
-
-  <!-- KATEGORİLER -->
-  <section class="main-section">
-    <div class="container content-grid">
-      
-      <div class="categories-grid">
-        <div class="category-card">
-          <div class="icon">⚙️</div>
-          FREN SERVOSULARI
-        </div>
-        <div class="category-card">
-          <div class="icon">🔌</div>
-          FREN VAKUM POMPALARI
-        </div>
-        <div class="category-card">
-          <div class="icon">🛠️</div>
-          TAMİR KİTLERİ
-        </div>
-        <div class="category-card">
-          <div class="icon">🔩</div>
-          DİĞER PARÇALAR
-        </div>
-        <div class="category-card">
-          <div class="icon">🏎️</div>
-          POPÜLER MODELLER
-        </div>
-      </div>
-
-      <div class="sidebar-partners">
-        <div class="partner-card">xparca.com İş Ortağı</div>
-        <div class="partner-card">YEDEK PARÇA UZMANI</div>
-        <div class="partner-card">PROFESYONEL ORTAKLIK</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-flex">
-      <div>⚙️ FrenServosu.com | BİZE ULAŞIN</div>
-      <div>MÜŞTERİ HİZMETLERİ | HESABIM</div>
-      <div>VISA | ISO 9001 SERTİFİKALI</div>
-    </div>
-  </footer>
-
-  <!-- TÜM MARKALARIN DİNAMİK MODEL LİSTESİ -->
-  <script>
-    const vehicleDB = {
-      alfa: ['Giulietta', 'Giulia', 'Stelvio', '159', '147'],
-      audi: ['A1', 'A3', 'A4', 'A5', 'A6', 'A7', 'Q2', 'Q3', 'Q5', 'Q7'],
-      bmw: ['1 Seri', '2 Seri', '3 Seri', '4 Seri', '5 Seri', 'X1', 'X3', 'X5'],
-      citroen: ['C3', 'C3 Aircross', 'C4', 'C4 Cactus', 'C5 Aircross', 'C-Elysee', 'Berlingo', 'Nemo'],
-      cupra: ['Formentor', 'Leon', 'Ateca'],
-      dacia: ['Duster', 'Sandero', 'Sandero Stepway', 'Logan', 'Lodgy', 'Jogger'],
-      ds: ['DS 3', 'DS 4', 'DS 7'],
-      fiat: ['Egea', 'Egea Cross', 'Linea', 'Doblo', 'Fiorino', 'Punto', 'Panda', '500', 'Ducato'],
-      ford: ['Focus', 'Fiesta', 'Puma', 'Kuga', 'Courier', 'Connect', 'Transit', 'Mondeo'],
-      honda: ['Civic', 'CR-V', 'HR-V', 'Jazz', 'City'],
-      hyundai: ['i10', 'i20', 'i30', 'Bayon', 'Tucson', 'Santa Fe', 'Accent Blue', 'Elantra'],
-      isuzu: ['D-Max'],
-      iveco: ['Daily'],
-      jaguar: ['F-Pace', 'XE', 'XF'],
-      jeep: ['Renegade', 'Compass', 'Grand Cherokee'],
-      kia: ['Picanto', 'Rio', 'Ceed', 'Stonic', 'XCeed', 'Sportage', 'Sorento'],
-      lancia: ['Delta', 'Ypsilon'],
-      landrover: ['Range Rover Evoque', 'Range Rover Sport', 'Discovery Sport', 'Freelander'],
-      mazda: ['Mazda 3', 'Mazda 6', 'CX-3', 'CX-5'],
-      mercedes: ['A-Serisi', 'B-Serisi', 'C-Serisi', 'E-Serisi', 'CLA', 'GLA', 'GLC', 'Vito', 'Sprinter'],
-      mini: ['Cooper', 'Countryman'],
-      mitsubishi: ['L200', 'ASX', 'Eclipse Cross', 'Pajero'],
-      nissan: ['Micra', 'Juke', 'Qashqai', 'X-Trail', 'Navara'],
-      opel: ['Corsa', 'Astra', 'Insignia', 'Mokka', 'Crossland', 'Grandland', 'Combo'],
-      peugeot: ['208', '2008', '301', '308', '3008', '5008', 'Rifter', 'Partner'],
-      porsche: ['Macan', 'Cayenne'],
-      renault: ['Clio', 'Megane', 'Fluence', 'Captur', 'Kadjar', 'Austral', 'Taliant', 'Kangoo', 'Master'],
-      seat: ['Ibiza', 'Leon', 'Arona', 'Ateca', 'Tarraco'],
-      skoda: ['Fabia', 'Scala', 'Octavia', 'Superb', 'Kamiq', 'Karoq', 'Kodiaq'],
-      ssangyong: ['Tivoli', 'Korando', 'Musso Grand'],
-      subaru: ['XV', 'Forester', 'Outback'],
-      suzuki: ['Swift', 'Vitara', 'Jimny'],
-      togg: ['T10X'],
-      toyota: ['Yaris', 'Corolla', 'C-HR', 'RAV4', 'Hilux', 'Proace City'],
-      volkswagen: ['Polo', 'Golf', 'Passat', 'T-Roc', 'Tiguan', 'Touareg', 'Caddy', 'Transporter', 'Amarok'],
-      volvo: ['XC40', 'XC60', 'XC90', 'S60', 'S90', 'V40']
-    };
-
-    const brandSelect = document.getElementById('brandSelect');
-    const modelSelect = document.getElementById('modelSelect');
-    const yearSelect = document.getElementById('yearSelect');
-    const engineSelect = document.getElementById('engineSelect');
-    const gearSelect = document.getElementById('gearSelect');
-
-    brandSelect.addEventListener('change', (e) => {
-      const brand = e.target.value;
-      modelSelect.innerHTML = '<option value="">🚘 2. Model Seçin...</option>';
-      yearSelect.disabled = true; engineSelect.disabled = true; gearSelect.disabled = true;
-
-      if (brand && vehicleDB[brand]) {
-        modelSelect.disabled = false;
-        vehicleDB[brand].forEach(m => {
-          modelSelect.innerHTML += `<option value="${m}">${m}</option>`;
-        });
-      } else {
-        modelSelect.disabled = true;
-      }
-    });
-
-    modelSelect.addEventListener('change', () => {
-      yearSelect.innerHTML = '<option value="">📅 3. Yıl</option>';
-      if (modelSelect.value) {
-        yearSelect.disabled = false;
-        for (let y = 2026; y >= 2000; y--) {
-          yearSelect.innerHTML += `<option value="${y}">${y}</option>`;
-        }
-      }
-    });
-
-    yearSelect.addEventListener('change', () => {
-      engineSelect.innerHTML = '<option value="">⚙️ 4. Motor Seçin...</option>';
-      if (yearSelect.value) {
-        engineSelect.disabled = false;
-        ['1.0 TSI / PureTech / TCe', '1.2 TSI / PureTech', '1.4 TSI / T-Jet', '1.5 dCi / BlueHDi / TDI', '1.6 TDI / HDi / E-HDI', '2.0 TDI / DCI / CDTI'].forEach(eng => {
-          engineSelect.innerHTML += `<option value="${eng}">${eng}</option>`;
-        });
-      }
-    });
-
-    engineSelect.addEventListener('change', () => {
-      gearSelect.innerHTML = '<option value="">🕹️ 5. Şanzıman</option>';
-      if (engineSelect.value) {
-        gearSelect.disabled = false;
-        ['Manuel', 'Otomatik / DSG / EDC / EAT8'].forEach(g => {
-          gearSelect.innerHTML += `<option value="${g}">${g}</option>`;
-        });
-      }
-    });
-  </script>
 </body>
 </html>
