@@ -1,244 +1,278 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>frenservosu.com - powered by xparca.com</title>
-  <style>
-    :root {
-      --navy-dark: #07162c;
-      --navy-main: #0b2341;
-      --orange-main: #f07d00;
-      --bg-gray: #edf2f7;
-      --border-color: #cbd5e1;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frenservosu.com - powered by xparca.com</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-    body { background-color: var(--bg-gray); color: #333; }
-    .container { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+        body {
+            background-color: #f4f6f8;
+            color: #333;
+        }
 
-    /* HEADER */
-    header { background: #fff; border-bottom: 1px solid #e2e8f0; }
-    .header-top { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
-    .logo-group { display: flex; align-items: center; gap: 8px; }
-    .logo-title { font-size: 22px; font-weight: 900; color: var(--navy-main); text-decoration: none; }
-    .logo-sub { font-size: 9px; color: #64748b; border-left: 1px solid #cbd5e1; padding-left: 8px; }
-    .user-nav { display: flex; gap: 15px; font-size: 11px; font-weight: bold; color: var(--navy-main); }
-    nav { background: #fff; border-bottom: 2px solid #cbd5e1; padding: 8px 0; }
-    .menu-list { display: flex; gap: 22px; list-style: none; font-size: 11px; font-weight: bold; color: var(--navy-main); }
+        /* Top Header Navigation */
+        .top-nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e1e5eb;
+            padding: 12px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-    /* HERO AREA */
-    .hero { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-main) 100%); padding: 25px 0; }
-    .hero-grid { display: grid; grid-template-columns: 370px 1fr; gap: 20px; align-items: center; }
-    
-    .vin-card { background: #040e1d; border: 1px solid #1e3a8a; border-radius: 10px; padding: 12px; margin-bottom: 10px; }
-    .vin-card h2 { color: #fff; font-size: 15px; margin-bottom: 8px; }
-    .vin-form { display: flex; background: #fff; border-radius: 5px; padding: 2px; }
-    .vin-form input { flex: 1; border: none; padding: 7px 10px; font-size: 11px; outline: none; }
-    .btn-orange { background: var(--orange-main); color: #fff; border: none; padding: 7px 18px; font-weight: bold; border-radius: 4px; cursor: pointer; font-size: 11px; }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    .filter-card { background: #fff; border-radius: 10px; padding: 12px; border: 1px solid var(--border-color); }
-    .filter-card h3 { font-size: 11px; font-weight: 800; color: #334155; margin-bottom: 8px; border-bottom: 2px solid var(--orange-main); display: inline-block; padding-bottom: 2px; }
-    .select-group { margin-bottom: 6px; }
-    .select-group select { width: 100%; padding: 7px; border: 1px solid var(--border-color); border-radius: 5px; font-size: 11px; outline: none; background: #f8fafc; color: #334155; }
-    .select-group select:disabled { background: #e2e8f0; opacity: 0.6; }
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #1b365d, #0d1e36);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f39c12;
+            font-size: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
 
-    .hero-banner-box { height: 320px; background: rgba(255,255,255,0.05); border: 2px dashed rgba(255,255,255,0.2); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center; }
+        .logo-text {
+            font-size: 22px;
+            font-weight: 800;
+            color: #1b365d;
+            letter-spacing: -0.5px;
+        }
 
-    /* BADGES & CATEGORIES */
-    .trust-bar { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 10px 0; }
-    .badges-flex { display: flex; justify-content: space-between; font-size: 10px; font-weight: bold; color: var(--navy-main); }
-    
-    .main-section { padding: 20px 0; }
-    .content-grid { display: grid; grid-template-columns: 1fr 210px; gap: 15px; }
-    .categories-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
-    .cat-card { background: #fff; border: 1px solid var(--border-color); border-radius: 6px; padding: 12px 6px; text-align: center; font-size: 9px; font-weight: bold; color: var(--navy-main); }
-    
-    .sidebar-partners { background: #cbd5e1; border-radius: 6px; padding: 8px; display: flex; flex-direction: column; gap: 6px; }
-    .partner-box { background: #fff; border: 1px solid #94a3b8; border-radius: 4px; padding: 8px; font-size: 9px; font-weight: bold; color: var(--navy-main); text-align: center; }
+        .logo-sub {
+            font-size: 11px;
+            color: #666;
+            font-weight: 600;
+            margin-left: 2px;
+        }
 
-    footer { background: var(--navy-main); color: #fff; padding: 10px 0; font-size: 10px; }
-    .footer-flex { display: flex; justify-content: space-between; align-items: center; }
-  </style>
-</head>
-<body>
+        .logo-sub span {
+            color: #1b365d;
+            font-weight: 700;
+        }
 
-  <header>
-    <div class="container header-top">
-      <div class="logo-group">
-        <a href="#" class="logo-title">⚙️ frenservosu.com</a>
-        <div class="logo-sub">powered by<br><b>xparca.com</b></div>
-      </div>
-      <div class="user-nav">
-        <span>👤 HESABIM</span>
-        <span>🛒 SEPETİM</span>
-        <span>TR ▾</span>
-      </div>
-    </div>
-    <nav>
-      <div class="container">
-        <ul class="menu-list">
-          <li>≡ KATEGORİLER ▾</li>
-          <li>MARKALAR</li>
-          <li>AVANTAJLARA BAKIŞ</li>
-          <li>BLOG</li>
-          <li>İLETİŞİM</li>
-          <li>FİRMA PROFİLİ</li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+        .main-menu {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="vin-card">
-          <h2>Şasi No ile Fren Servosu Ara</h2>
-          <div class="vin-form">
-            <input type="text" id="vinInput" maxlength="17" placeholder="Aracınızın 17 haneli Şasi Numarasını (VIN) giriniz...">
-            <button class="btn-orange">BUL</button>
-          </div>
-        </div>
+        .main-menu a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
 
-        <div class="filter-card">
-          <h3>ARACINIZI SEÇİN</h3>
-          <div class="select-group">
-            <select id="brandSelect">
-              <option value="">🚗 1. Marka</option>
-              <option value="alfa">Alfa Romeo</option>
-              <option value="audi">Audi</option>
-              <option value="bmw">BMW</option>
-              <option value="citroen">Citroën</option>
-              <option value="dacia">Dacia</option>
-              <option value="fiat">Fiat / Tofaş</option>
-              <option value="ford">Ford</option>
-              <option value="honda">Honda</option>
-              <option value="hyundai">Hyundai</option>
-              <option value="kia">Kia</option>
-              <option value="mercedes">Mercedes-Benz</option>
-              <option value="nissan">Nissan</option>
-              <option value="opel">Opel</option>
-              <option value="peugeot">Peugeot</option>
-              <option value="renault">Renault</option>
-              <option value="seat">Seat</option>
-              <option value="skoda">Škoda</option>
-              <option value="toyota">Toyota</option>
-              <option value="volkswagen">Volkswagen</option>
-              <option value="volvo">Volvo</option>
-            </select>
-          </div>
-          <div class="select-group"><select id="modelSelect" disabled><option value="">🚘 2. Model Seçin...</option></select></div>
-          <div class="select-group"><select id="yearSelect" disabled><option value="">📅 3. Yıl</option></select></div>
-          <div class="select-group"><select id="engineSelect" disabled><option value="">⚙️ 4. Motor Seçin...</option></select></div>
-          <div class="select-group"><select id="gearSelect" disabled><option value="">🕹️ 5. Şanzıman</option></select></div>
-        </div>
-      </div>
+        .main-menu a.dropdown::after {
+            content: ' \f107';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-left: 4px;
+        }
 
-      <div class="hero-banner-box">
-        <h1 style="color:#60a5fa; font-size:24px;">%100 OEM STANDARDI</h1>
-        <p style="font-size:13px; margin-top:5px;">Orijinal ve Garantili Fren Servosu & Vakum Pompaları</p>
-      </div>
-    </div>
-  </section>
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #1b365d;
+        }
 
-  <section class="trust-bar">
-    <div class="container badges-flex">
-      <div>🛡️ ORİJİNAL VE GARANTİLİ ÜRÜNLER</div>
-      <div>🚚 HIZLI VE ÜCRETSİZ KARGO</div>
-      <div>👨‍🔧 UZMAN TEKNİK DESTEK</div>
-      <div>🔄 KOLAY İADE</div>
-    </div>
-  </section>
+        .user-actions div {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
 
-  <section class="main-section">
-    <div class="container content-grid">
-      <div class="categories-grid">
-        <div class="cat-card"><div style="font-size:24px;margin-bottom:5px;">⚙️</div>FREN SERVOSULARI</div>
-        <div class="cat-card"><div style="font-size:24px;margin-bottom:5px;">🔌</div>FREN VAKUM POMPALARI</div>
-        <div class="cat-card"><div style="font-size:24px;margin-bottom:5px;">🛠️</div>TAMİR KİTLERİ</div>
-        <div class="cat-card"><div style="font-size:24px;margin-bottom:5px;">🔩</div>DİĞER PARÇALAR</div>
-        <div class="cat-card"><div style="font-size:24px;margin-bottom:5px;">🏎️</div>POPÜLER MODELLER</div>
-      </div>
-      <div class="sidebar-partners">
-        <div class="partner-box">xparca.com İş Ortağı</div>
-        <div class="partner-box">YEDEK PARÇA UZMANI</div>
-        <div class="partner-box">PROFESYONEL ORTAKLIK</div>
-      </div>
-    </div>
-  </section>
+        /* Hero Banner Section */
+        .hero-section {
+            background: linear-gradient(110deg, #0d2342 0%, #163660 45%, #2a5288 100%);
+            position: relative;
+            padding: 30px 5% 40px 5%;
+            overflow: hidden;
+            min-height: 400px;
+        }
 
-  <footer>
-    <div class="container footer-flex">
-      <div>⚙️ FrenServosu.com | BİZE ULAŞIN</div>
-      <div>MÜŞTERİ HİZMETLERİ | HESABIM</div>
-      <div>VISA | ISO 9001 SERTİFİKALI</div>
-    </div>
-  </footer>
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 25px;
+            position: relative;
+            z-index: 2;
+        }
 
-  <script>
-    const vehicleDB = {
-      alfa: ['Giulietta', 'Giulia', 'Stelvio', '159'],
-      audi: ['A3', 'A4', 'A6', 'Q3', 'Q5'],
-      bmw: ['1 Seri', '3 Seri', '5 Seri', 'X3', 'X5'],
-      citroen: ['C3', 'C4', 'C-Elysee', 'Berlingo'],
-      dacia: ['Duster', 'Sandero', 'Logan'],
-      fiat: ['Egea', 'Linea', 'Doblo', 'Fiorino'],
-      ford: ['Focus', 'Fiesta', 'Courier', 'Transit'],
-      honda: ['Civic', 'CR-V'],
-      hyundai: ['i20', 'i30', 'Tucson', 'Accent'],
-      kia: ['Rio', 'Ceed', 'Sportage'],
-      mercedes: ['A-Serisi', 'C-Serisi', 'E-Serisi', 'Vito'],
-      nissan: ['Qashqai', 'Juke', 'X-Trail'],
-      opel: ['Astra', 'Corsa', 'Insignia', 'Combo'],
-      peugeot: ['208', '301', '308', '3008'],
-      renault: ['Clio', 'Megane', 'Fluence', 'Kadjar'],
-      seat: ['Leon', 'Ibiza', 'Ateca'],
-      skoda: ['Octavia', 'Superb', 'Fabia'],
-      toyota: ['Corolla', 'Yaris', 'C-HR'],
-      volkswagen: ['Golf', 'Passat', 'Polo', 'Tiguan', 'Transporter'],
-      volvo: ['S60', 'S90', 'XC60']
-    };
+        .search-column {
+            width: 380px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-    const brandSelect = document.getElementById('brandSelect');
-    const modelSelect = document.getElementById('modelSelect');
-    const yearSelect = document.getElementById('yearSelect');
-    const engineSelect = document.getElementById('engineSelect');
-    const gearSelect = document.getElementById('gearSelect');
+        /* Şasi No Box */
+        .chassis-box {
+            background-color: #0b1a30;
+            border: 1px solid #234574;
+            border-radius: 12px;
+            padding: 16px;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
 
-    brandSelect.addEventListener('change', (e) => {
-      const brand = e.target.value;
-      modelSelect.innerHTML = '<option value="">🚘 2. Model Seçin...</option>';
-      yearSelect.disabled = true; engineSelect.disabled = true; gearSelect.disabled = true;
+        .chassis-box h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            text-align: center;
+        }
 
-      if (brand && vehicleDB[brand]) {
-        modelSelect.disabled = false;
-        vehicleDB[brand].forEach(m => modelSelect.innerHTML += `<option value="${m}">${m}</option>`);
-      } else { modelSelect.disabled = true; }
-    });
+        .input-group {
+            display: flex;
+            background: #ffffff;
+            border-radius: 6px;
+            padding: 3px;
+        }
 
-    modelSelect.addEventListener('change', () => {
-      yearSelect.innerHTML = '<option value="">📅 3. Yıl</option>';
-      if (modelSelect.value) {
-        yearSelect.disabled = false;
-        for (let y = 2026; y >= 2000; y--) yearSelect.innerHTML += `<option value="${y}">${y}</option>`;
-      }
-    });
+        .input-group input {
+            border: none;
+            outline: none;
+            padding: 8px 12px;
+            flex: 1;
+            font-size: 12px;
+            border-radius: 4px;
+        }
 
-    yearSelect.addEventListener('change', () => {
-      engineSelect.innerHTML = '<option value="">⚙️ 4. Motor Seçin...</option>';
-      if (yearSelect.value) {
-        engineSelect.disabled = false;
-        ['1.0 TSI / PureTech', '1.2 TSI / PureTech', '1.4 TSI / T-Jet', '1.5 dCi / BlueHDi / TDI', '1.6 TDI / HDi', '2.0 TDI / DCI'].forEach(eng => engineSelect.innerHTML += `<option value="${eng}">${eng}</option>`);
-      }
-    });
+        .btn-search {
+            background: linear-gradient(to bottom, #f39c12, #e67e22);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            font-weight: 800;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+        }
 
-    engineSelect.addEventListener('change', () => {
-      gearSelect.innerHTML = '<option value="">🕹️ 5. Şanzıman</option>';
-      if (engineSelect.value) {
-        gearSelect.disabled = false;
-        ['Manuel', 'Otomatik / DSG / EDC'].forEach(g => gearSelect.innerHTML += `<option value="${g}">${g}</option>`);
-      }
-    });
-  </script>
-</body>
-</html>
+        /* Vehicle Selector Box */
+        .vehicle-box {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .vehicle-box-title {
+            font-size: 13px;
+            font-weight: 800;
+            color: #1b365d;
+            border-bottom: 2px solid #e1e5eb;
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .select-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .select-item {
+            display: flex;
+            align-items: center;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            padding: 6px 10px;
+            background: #fdfdfd;
+        }
+
+        .select-item i {
+            color: #1b365d;
+            width: 20px;
+            font-size: 14px;
+        }
+
+        .select-item select {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 12px;
+            color: #555;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Hero Visual Right Side */
+        .visual-column {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .car-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Feature Badges Bar */
+        .features-bar {
+            background-color: #eef2f5;
+            border-bottom: 1px solid #dce2e8;
+            padding: 12px 5%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            font-weight: 800;
+            color: #1b365d;
+            text-transform: uppercase;
+        }
+
+        .feature-item i {
+            font-size: 18px;
+            color: #1b365d;
+        }
+
+        /* Bottom Grid Section */
+        .bottom-section {
+            max-width: 1200px;
+            margin: 25px auto;
+            padding: 0 15px;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+        }
