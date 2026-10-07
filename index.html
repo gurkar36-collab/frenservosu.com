@@ -180,34 +180,31 @@
       opacity: 0.6;
     }
 
-    /* HERO BANNER IMAGE */
+    /* HERO BANNER GRAPHIC */
     .hero-banner {
-      position: relative;
-      width: 100%;
-      height: 340px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px dashed rgba(255, 255, 255, 0.2);
       border-radius: 12px;
-      overflow: hidden;
-      background: url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=900&auto=format&fit=crop&q=80') center/cover no-repeat;
+      height: 340px;
       display: flex;
-      align-items: flex-end;
-    }
-
-    .banner-overlay {
-      background: linear-gradient(to top, rgba(11,35,65,0.95), transparent);
-      width: 100%;
-      padding: 25px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       color: #fff;
+      text-align: center;
+      padding: 20px;
     }
 
-    .banner-overlay h1 {
-      font-size: 24px;
+    .hero-banner h1 {
+      font-size: 26px;
       color: #60a5fa;
-      margin-bottom: 5px;
+      margin-top: 15px;
     }
 
-    .banner-overlay p {
+    .hero-banner p {
       font-size: 13px;
-      color: #e2e8f0;
+      color: #cbd5e1;
+      margin-top: 5px;
     }
 
     /* 3. TRUST BADGES */
@@ -252,17 +249,15 @@
       background: #ffffff;
       border: 1px solid var(--border-gray);
       border-radius: 6px;
-      padding: 12px 8px;
+      padding: 15px 8px;
       text-align: center;
       font-size: 10px;
       font-weight: bold;
       color: var(--navy-main);
     }
 
-    .cat-card img {
-      width: 100%;
-      height: 65px;
-      object-fit: contain;
+    .cat-icon {
+      font-size: 32px;
       margin-bottom: 8px;
     }
 
@@ -279,7 +274,7 @@
       background: #ffffff;
       border: 1px solid #94a3b8;
       border-radius: 4px;
-      padding: 8px;
+      padding: 10px;
       font-size: 10px;
       font-weight: bold;
       color: var(--navy-main);
@@ -402,12 +397,11 @@
         </div>
       </div>
 
-      <!-- SAĞ: BİREBİR ARAÇ BANNER GÖRSELİ -->
+      <!-- SAĞ BANNER -->
       <div class="hero-banner">
-        <div class="banner-overlay">
-          <h1>%100 OEM STANDARDI</h1>
-          <p>Şasi Numarası (VIN) İle Birebir Uyumlu Orijinal Fren Servoları</p>
-        </div>
+        <div style="font-size: 80px;">🏎️⚙️</div>
+        <h1>%100 OEM STANDARDI</h1>
+        <p>Şasi Numarası (VIN) İle Birebir Uyumlu Orijinal Fren Servoları</p>
       </div>
 
     </div>
@@ -429,17 +423,123 @@
       
       <div class="categories-grid">
         <div class="cat-card">
-          <img src="https://cdn-icons-png.flaticon.com/512/3202/3202003.png" alt="Fren Servosu">
+          <div class="cat-icon">⚙️</div>
           FREN SERVOSULARI
         </div>
         <div class="cat-card">
-          <img src="https://cdn-icons-png.flaticon.com/512/1048/1048313.png" alt="Vakum Pompası">
+          <div class="cat-icon">🔌</div>
           FREN VAKUM POMPALARI
         </div>
         <div class="cat-card">
-          <img src="https://cdn-icons-png.flaticon.com/512/1037/1037970.png" alt="Tamir Kiti">
+          <div class="cat-icon">🛠️</div>
           TAMİR KİTLERİ
         </div>
         <div class="cat-card">
-          <img src="https://cdn-icons-png.flaticon.com/512/2051/2051703.png" alt="Diğer Parçalar">
-          DİĞER PARÇ
+          <div class="cat-icon">🔩</div>
+          DİĞER PARÇALAR
+        </div>
+        <div class="cat-card">
+          <div class="cat-icon">🏎️</div>
+          POPÜLER MODELLER
+        </div>
+      </div>
+
+      <div class="partner-sidebar">
+        <div class="partner-box">xparca.com İş Ortağı</div>
+        <div class="partner-box">YEDEK PARÇA UZMANI</div>
+        <div class="partner-box">PROFESYONEL ORTAKLIK</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-flex">
+      <div>⚙️ FrenServosu.com | BİZE ULAŞIN</div>
+      <div>MÜŞTERİ HİZMETLERİ | HESABIM</div>
+      <div>VISA | ISO 9001 SERTİFİKALI</div>
+    </div>
+  </footer>
+
+  <!-- DİNAMİK MARKA / MODEL SCRIPT -->
+  <script>
+    const vehicleDB = {
+      alfa: ['Giulietta', 'Giulia', 'Stelvio', '159'],
+      audi: ['A3', 'A4', 'A6', 'Q3', 'Q5', 'Q7'],
+      bmw: ['1 Seri', '3 Seri', '5 Seri', 'X3', 'X5'],
+      citroen: ['C3', 'C4', 'C-Elysee', 'Berlingo'],
+      cupra: ['Formentor', 'Leon'],
+      dacia: ['Duster', 'Sandero', 'Logan'],
+      fiat: ['Egea', 'Linea', 'Doblo', 'Fiorino', 'Punto'],
+      ford: ['Focus', 'Fiesta', 'Courier', 'Transit', 'Mondeo'],
+      honda: ['Civic', 'CR-V', 'HR-V'],
+      hyundai: ['i20', 'i30', 'Tucson', 'Accent Blue'],
+      isuzu: ['D-Max'],
+      iveco: ['Daily'],
+      kia: ['Rio', 'Ceed', 'Sportage'],
+      mercedes: ['A-Serisi', 'C-Serisi', 'E-Serisi', 'CLA', 'Vito', 'Sprinter'],
+      nissan: ['Micra', 'Juke', 'Qashqai', 'X-Trail'],
+      opel: ['Corsa', 'Astra', 'Insignia', 'Mokka', 'Combo'],
+      peugeot: ['208', '301', '308', '3008', '5008', 'Rifter'],
+      renault: ['Clio', 'Megane', 'Fluence', 'Kadjar', 'Symbol', 'Master'],
+      seat: ['Ibiza', 'Leon', 'Arona', 'Ateca'],
+      skoda: ['Fabia', 'Octavia', 'Superb', 'Kamiq', 'Kodiaq'],
+      toyota: ['Yaris', 'Corolla', 'C-HR', 'Hilux'],
+      volkswagen: ['Polo', 'Golf', 'Passat', 'Tiguan', 'Caddy', 'Transporter'],
+      volvo: ['S60', 'S90', 'XC60', 'XC90']
+    };
+
+    const brandSelect = document.getElementById('brandSelect');
+    const modelSelect = document.getElementById('modelSelect');
+    const yearSelect = document.getElementById('yearSelect');
+    const engineSelect = document.getElementById('engineSelect');
+    const gearSelect = document.getElementById('gearSelect');
+
+    brandSelect.addEventListener('change', (e) => {
+      const brand = e.target.value;
+      modelSelect.innerHTML = '<option value="">🚘 2. Model Seçin...</option>';
+      yearSelect.disabled = true; engineSelect.disabled = true; gearSelect.disabled = true;
+
+      if (brand && vehicleDB[brand]) {
+        modelSelect.disabled = false;
+        vehicleDB[brand].forEach(m => {
+          modelSelect.innerHTML += `<option value="${m}">${m}</option>`;
+        });
+      } else {
+        modelSelect.disabled = true;
+      }
+    });
+
+    modelSelect.addEventListener('change', () => {
+      yearSelect.innerHTML = '<option value="">📅 3. Yıl</option>';
+      if (modelSelect.value) {
+        yearSelect.disabled = false;
+        for (let y = 2026; y >= 2000; y--) {
+          yearSelect.innerHTML += `<option value="${y}">${y}</option>`;
+        }
+      }
+    });
+
+    yearSelect.addEventListener('change', () => {
+      engineSelect.innerHTML = '<option value="">⚙️ 4. Motor Seçin...</option>';
+      if (yearSelect.value) {
+        engineSelect.disabled = false;
+        ['1.0 TSI / PureTech', '1.2 TSI / PureTech', '1.4 TSI / T-Jet', '1.5 dCi / BlueHDi / TDI', '1.6 TDI / HDi', '2.0 TDI / DCI'].forEach(eng => {
+          engineSelect.innerHTML += `<option value="${eng}">${eng}</option>`;
+        });
+      }
+    });
+
+    engineSelect.addEventListener('change', () => {
+      gearSelect.innerHTML = '<option value="">🕹️ 5. Şanzıman</option>';
+      if (engineSelect.value) {
+        gearSelect.disabled = false;
+        ['Manuel', 'Otomatik / DSG / EDC'].forEach(g => {
+          gearSelect.innerHTML += `<option value="${g}">${g}</option>`;
+        });
+      }
+    });
+  </script>
+</body>
+</html>
