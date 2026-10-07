@@ -10,257 +10,536 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: #dce3ea;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
+            background-color: #f4f6f8;
+            color: #333;
         }
 
-        /* Ana Ekran Konteyneri (Monitör İçi Birebir Arayüz) */
-        .site-wrapper {
-            width: 100%;
-            max-width: 1200px;
+        /* Top Header Navigation */
+        .top-nav {
             background-color: #ffffff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        /* 1. ÜST HEADER BAR */
-        .header-top {
+            border-bottom: 1px solid #e1e5eb;
+            padding: 12px 5%;
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
-            padding: 10px 25px;
-            background-color: #ffffff;
-            border-bottom: 1px solid #e1e8ed;
         }
 
-        .logo-area {
+        .logo-container {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
         }
 
         .logo-icon {
-            font-size: 26px;
-            color: #1a365d;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #1b365d, #0d1e36);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f39c12;
+            font-size: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        .logo-title {
+        .logo-text {
             font-size: 22px;
             font-weight: 800;
-            color: #1a365d;
+            color: #1b365d;
             letter-spacing: -0.5px;
         }
 
         .logo-sub {
             font-size: 11px;
-            color: #555;
-            font-weight: bold;
+            color: #666;
+            font-weight: 600;
+            margin-left: 2px;
         }
 
         .logo-sub span {
-            color: #1a365d;
+            color: #1b365d;
+            font-weight: 700;
         }
 
-        .header-menu {
+        .main-menu {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .main-menu a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .main-menu a.dropdown::after {
+            content: ' \f107';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-left: 4px;
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #1b365d;
+        }
+
+        .user-actions div {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        /* Hero Banner Section */
+        .hero-section {
+            background: linear-gradient(110deg, #0d2342 0%, #163660 45%, #2a5288 100%);
+            position: relative;
+            padding: 30px 5% 40px 5%;
+            overflow: hidden;
+            min-height: 400px;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .search-column {
+            width: 380px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Şasi No Box */
+        .chassis-box {
+            background-color: #0b1a30;
+            border: 1px solid #234574;
+            border-radius: 12px;
+            padding: 16px;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .chassis-box h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .input-group {
+            display: flex;
+            background: #ffffff;
+            border-radius: 6px;
+            padding: 3px;
+        }
+
+        .input-group input {
+            border: none;
+            outline: none;
+            padding: 8px 12px;
+            flex: 1;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        .btn-search {
+            background: linear-gradient(to bottom, #f39c12, #e67e22);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            font-weight: 800;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        /* Vehicle Selector Box */
+        .vehicle-box {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .vehicle-box-title {
+            font-size: 13px;
+            font-weight: 800;
+            color: #1b365d;
+            border-bottom: 2px solid #e1e5eb;
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .select-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .select-item {
+            display: flex;
+            align-items: center;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            padding: 6px 10px;
+            background: #fdfdfd;
+        }
+
+        .select-item i {
+            color: #1b365d;
+            width: 20px;
+            font-size: 14px;
+        }
+
+        .select-item select {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 12px;
+            color: #555;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Hero Visual Right Side */
+        .visual-column {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .car-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Feature Badges Bar */
+        .features-bar {
+            background-color: #eef2f5;
+            border-bottom: 1px solid #dce2e8;
+            padding: 12px 5%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            font-weight: 800;
+            color: #1b365d;
+            text-transform: uppercase;
+        }
+
+        .feature-item i {
+            font-size: 18px;
+            color: #1b365d;
+        }
+
+        /* Bottom Grid Section */
+        .bottom-section {
+            max-width: 1200px;
+            margin: 25px auto;
+            padding: 0 15px;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #e1e5eb;
+            padding: 12px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            font-size: 11px;
+            font-weight: 800;
+            color: #1b365d;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 90px;
+            object-fit: contain;
+            margin-bottom: 5px;
+        }
+
+        /* Partner Box (Last Item Grid) */
+        .partner-box {
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #d0d7de;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .partner-btn {
+            background-color: #eef3f8;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            padding: 6px 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 10px;
+            font-weight: 800;
+            color: #1b365d;
+            text-transform: uppercase;
+            text-align: left;
+        }
+
+        .partner-btn i {
+            font-size: 14px;
+            color: #f39c12;
+        }
+
+        /* Footer Bar */
+        .footer-bar {
+            background-color: #0b1a30;
+            color: #ffffff;
+            padding: 12px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .footer-links {
             display: flex;
             gap: 20px;
             list-style: none;
         }
 
-        .header-menu a {
+        .footer-links a {
+            color: #ffffff;
             text-decoration: none;
-            color: #2c3e50;
-            font-size: 12px;
-            font-weight: 700;
             text-transform: uppercase;
         }
 
-        .header-menu .dropdown::after {
-            content: ' \f107';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-        }
-
-        .header-user {
+        .footer-right {
             display: flex;
+            align-items: center;
             gap: 15px;
-            font-size: 11px;
-            font-weight: 700;
-            color: #1a365d;
         }
+    </style>
+</head>
+<body>
 
-        .header-user div {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
+    <!-- Üst Gezinme Menüsü -->
+    <header class="top-nav">
+        <div class="logo-container">
+            <div class="logo-icon">
+                <i class="fa-solid fa-gear"></i>
+            </div>
+            <div>
+                <div class="logo-text">frenservosu.com</div>
+                <div class="logo-sub">powered by <span>xparca.com</span></div>
+            </div>
+        </div>
 
-        /* 2. HERO / KOYU MAVİ BANNER ALANI */
-        .hero-banner {
-            background: linear-gradient(135deg, #091e3a 0%, #112d55 50%, #1a3e6d 100%);
-            padding: 25px 30px;
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            min-height: 380px;
-        }
+        <ul class="main-menu">
+            <li><a href="#" class="dropdown"><i class="fa-solid fa-bars"></i> KATEGORİLER</a></li>
+            <li><a href="#">MARKALAR</a></li>
+            <li><a href="#">AVANTAJLARA BAKIŞ</a></li>
+            <li><a href="#">BLOG</a></li>
+            <li><a href="#">İLETİŞİM</a></li>
+            <li><a href="#">FİRMA PROFİLİ</a></li>
+        </ul>
 
-        .hero-left {
-            width: 360px;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+        <div class="user-actions">
+            <div><i class="fa-regular fa-user"></i> HESABIM</div>
+            <div><i class="fa-solid fa-cart-shopping"></i> SEPETİM</div>
+            <div>TR <i class="fa-solid fa-chevron-down"></i></div>
+        </div>
+    </header>
 
-        /* Şasi No Kutusu */
-        .chassis-card {
-            background-color: #0d274c;
-            border: 1px solid #1e4173;
-            border-radius: 12px;
-            padding: 12px 16px;
-            text-align: center;
-        }
+    <!-- Ana Görsel (Hero) Alanı -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <!-- Sol Arama & Araç Seçim Alanı -->
+            <div class="search-column">
+                
+                <!-- Şasi No İle Arama -->
+                <div class="chassis-box">
+                    <h3>Şasi No ile Fren Servosu Ara</h3>
+                    <div class="input-group">
+                        <input type="text" placeholder="Aracınızın 17 haneli Şasi Numarasını (VIN) giriniz...">
+                        <button class="btn-search">BUL</button>
+                    </div>
+                </div>
 
-        .chassis-card h2 {
-            color: #ffffff;
-            font-size: 17px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
+                <!-- Araç Seçim Dropdown Grubu -->
+                <div class="vehicle-box">
+                    <div class="vehicle-box-title">ARACINIZI SEÇİN</div>
+                    <div class="select-group">
+                        <div class="select-item">
+                            <i class="fa-solid fa-car"></i>
+                            <select><option>1. Marka</option></select>
+                        </div>
+                        <div class="select-item">
+                            <i class="fa-solid fa-car-side"></i>
+                            <select><option>2. Model Seçin...</option></select>
+                        </div>
+                        <div class="select-item">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <select><option>3. Yıl</option></select>
+                        </div>
+                        <div class="select-item">
+                            <i class="fa-solid fa-engine"></i>
+                            <select><option>4. Motor Seçin...</option></select>
+                        </div>
+                        <div class="select-item">
+                            <i class="fa-solid fa-gear"></i>
+                            <select><option>5. Şanzıman</option></select>
+                        </div>
+                    </div>
+                </div>
 
-        .chassis-input-group {
-            display: flex;
-            background: #ffffff;
-            border-radius: 6px;
-            overflow: hidden;
-            padding: 2px;
-        }
+            </div>
 
-        .chassis-input-group input {
-            border: none;
-            outline: none;
-            padding: 6px 10px;
-            flex: 1;
-            font-size: 11px;
-            color: #666;
-        }
+            <!-- Sağ Görsel ve Yedek Parça İllüstrasyonu -->
+            <div class="visual-column">
+                <div class="car-image-wrapper">
+                    <!-- Gerçek görsel simülasyonu için yüksek çözünürlüklü otomobil & fren servosu illüstrasyon alanı -->
+                    <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1000&auto=format&fit=crop" alt="Fren Servosu ve Araç Görseli" style="max-width: 100%; height: auto; border-radius: 8px; opacity: 0.85;">
+                </div>
+            </div>
+        </div>
+    </section>
 
-        .btn-bul {
-            background: #f39c12;
-            color: #ffffff;
-            border: none;
-            padding: 6px 18px;
-            font-weight: 800;
-            font-size: 12px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+    <!-- Avantajlar / Özellikler Bandı -->
+    <div class="features-bar">
+        <div class="feature-item">
+            <i class="fa-regular fa-circle-check"></i>
+            <span>ORİJİNAL VE GARANTİLİ ÜRÜNLER</span>
+        </div>
+        <div class="feature-item">
+            <i class="fa-solid fa-truck-fast"></i>
+            <span>HIZLI VE ÜCRETSİZ KARGO</span>
+        </div>
+        <div class="feature-item">
+            <i class="fa-solid fa-headset"></i>
+            <span>UZMAN TEKNİK DESTEK</span>
+        </div>
+        <div class="feature-item">
+            <i class="fa-solid fa-rotate-left"></i>
+            <span>KOLAY İADE</span>
+        </div>
+    </div>
 
-        /* Araç Seçim Paneli */
-        .vehicle-select-card {
-            background-color: #ffffff;
-            border-radius: 10px;
-            padding: 12px 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
+    <!-- Alt Ürün ve Kategori Kartları -->
+    <main class="bottom-section">
+        
+        <div class="card">
+            <div class="card-title">FREN SERVOSULARI</div>
+            <img src="https://cdn-icons-png.flaticon.com/512/1995/1995429.png" class="card-img" alt="Fren Servosular">
+        </div>
 
-        .vehicle-title {
-            font-size: 11px;
-            font-weight: 800;
-            color: #333;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-            margin-bottom: 8px;
-        }
+        <div class="card">
+            <div class="card-title">FREN VAKUM POMPALARI</div>
+            <img src="https://cdn-icons-png.flaticon.com/512/1533/1533924.png" class="card-img" alt="Fren Vakum Pompası">
+        </div>
 
-        .select-list {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
+        <div class="card">
+            <div class="card-title">TAMİR KİTLERİ</div>
+            <img src="https://cdn-icons-png.flaticon.com/512/1037/1037975.png" class="card-img" alt="Tamir Kitleri">
+        </div>
 
-        .select-box {
-            display: flex;
-            align-items: center;
-            border: 1px solid #cccccc;
-            border-radius: 5px;
-            padding: 5px 8px;
-            background: #fff;
-        }
+        <div class="card">
+            <div class="card-title">DİĞER PARÇALAR</div>
+            <img src="https://cdn-icons-png.flaticon.com/512/1188/1188536.png" class="card-img" alt="Diğer Parçalar">
+        </div>
 
-        .select-box i {
-            color: #1a365d;
-            font-size: 13px;
-            width: 22px;
-        }
+        <div class="card">
+            <div class="card-title">POPÜLER MODELLER</div>
+            <img src="https://cdn-icons-png.flaticon.com/512/3202/3202003.png" class="card-img" alt="Popüler Modeller">
+        </div>
 
-        .select-box select {
-            border: none;
-            outline: none;
-            width: 100%;
-            font-size: 11px;
-            color: #444;
-            font-weight: 600;
-            background: transparent;
-        }
+        <div class="partner-box">
+            <div class="partner-btn">
+                <i class="fa-solid fa-xmark"></i>
+                <div>
+                    <div>xparca.com</div>
+                    <div style="font-size:8px; font-weight:normal;">İş Ortadığı</div>
+                </div>
+            </div>
+            <div class="partner-btn">
+                <i class="fa-solid fa-wrench"></i>
+                <div>YEDEK PARÇA UZMANI</div>
+            </div>
+            <div class="partner-btn">
+                <i class="fa-solid fa-handshake"></i>
+                <div>PROFESYONEL ORTAKLIK</div>
+            </div>
+        </div>
 
-        /* Görsel Alanı (Sağ Taraf) */
-        .hero-right {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
+    </main>
 
-        .hero-car-render {
-            max-width: 90%;
-            height: auto;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
-        }
+    <!-- Alt Bilgi (Footer) -->
+    <footer class="footer-bar">
+        <ul class="footer-links">
+            <li><a href="#">FrenServosu.com</a></li>
+            <li><a href="#">BİZE ULAŞIN</a></li>
+            <li><a href="#">MÜŞTERİ HİZMETLERİ</a></li>
+            <li><a href="#">HESABIM</a></li>
+        </ul>
 
-        /* 3. ÖZELLİK VE AVANTAJ BARI */
-        .features-strip {
-            background-color: #eef2f6;
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 20px;
-            border-bottom: 1px solid #dcdcdc;
-        }
+        <div class="footer-right">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <span>VISA</span>
+            <span><i class="fa-solid fa-certificate"></i> ISO 9001 SERTİFİKALI</span>
+        </div>
+    </footer>
 
-        .feature-box {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 11px;
-            font-weight: 800;
-            color: #1a365d;
-        }
-
-        .feature-box i {
-            font-size: 16px;
-        }
-
-        /* 4. ALT KATEGORİ VE ROZET GRIDİ */
-        .grid-section {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 12px;
-            padding: 15px 25px;
-            background-color: #ffffff;
-        }
-
-        .cat-card {
-            border: 1px solid #e1e8ed;
-            border-radius:
+</body>
+</html>
